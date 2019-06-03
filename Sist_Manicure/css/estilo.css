@@ -1,0 +1,77 @@
+body {margin: 0; padding: 0;}
+header {width: 100%;}
+main {width: 100%;}
+footer {width: 100%;}
+ul{margin: 0; padding: 0; list-style: none;}
+
+
+nav {float: left; width: 100%; background: #ffefbaff; font-weight: bold; font-family: Arial,sans-serif; color: #274e13; }
+nav li{float: left;}
+
+nav li:first-child{margin-top: 1px;}
+.ind-topo {float: left; width: 100%; background: #000000; }
+.ind-logo{position: absolute; width: 25%; left: 0; top: 0; text-align: center;}
+
+/*Media queris para dispositivos - */
+/*Smartphone*/
+@media only screen and (max-width: 480px){
+    nav li{position: relative; float: left; top: 51px; width: 90%; display: none; background: #A9CF46; height: 30px; padding-top: 10px; padding-bottom: 10px; /*padding-left: 10%*/; border-bottom: 1px #FFFFFF solid; color: #333333; cursor: pointer;}
+    .ind-topo {height: 50px; }
+    .ind-botao{position: absolute; width: 65%; top: 3px; right: 0; cursor: pointer; padding-right: 10%; text-align: right;}
+	.ind-logo img{margin-top: 3px; max-height: 40px;}
+}
+
+/*Tablet*/
+@media only screen and (min-width: 481px) and (max-width: 768px){
+	nav li{position: relative; float: left; top: 61px; width: 90%; display: none; background: #A9CF46; height: 30px; padding-top: 10px; padding-bottom: 10px; /*padding-left: 10%*/; border-bottom: 1px #FFFFFF solid; color: #333333; cursor: pointer;}
+	.ind-topo {height: 60px; }
+    .ind-botao{position: absolute; width: 65%; top: 9px; right: 0; cursor: pointer; padding-right: 10%; text-align: right;}
+    .ind-logo img{margin-top: 3px; max-height: 50px;}
+}
+
+/*Desktop*/
+@media only screen and (min-width: 769px){
+    nav{position: absolute; height: 60px; /*padding-left: 25%;*/ padding-top: 20px;}
+        nav li{width: 15%; text-align: center;}
+        nav li:last-child{color: #A9CF46;}
+    .ind-topo {height: 60px; }
+    .ind-botao{display: none;}
+    .ind-logo img{max-width: 100%;}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #3e5569;
+  text-align: left;
+  background-color: #fff; 
+  
+ }
+ 
+header{
+	background-color: #ffefbaff;
+}
+ 
+#banner {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background-color: #96ff9bff;
+} 
+
+#conteudo {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background-color: #f3f3f3ff;
+}
+
+#publicidade {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background-color: #96ff9bff;
+}
+ 
+footer{
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
