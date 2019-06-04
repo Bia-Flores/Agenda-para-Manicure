@@ -28,7 +28,7 @@
 							<th align=left>Senha:</th><td> <input type="password" name="senha" id="senha" required></td>	
 						</tr>
 						<tr>
-							<th align=left>Foto:</th><td> <input type="text" name="foto" id="foto" required></td>	
+							<th align=left>Foto:</th><td> <input type="text" name="foto" id="foto" ></td>	
 						</tr>
 						<tr>			
 							<th colspan="2" ><input type="submit" Value="Cadastrar">

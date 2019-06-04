@@ -3,8 +3,8 @@
 ?>
 -->
 
-	<form action = "" name = "cadPrestador" method ="POST">
-		<h5> Cadastro de Profissionais </h5><br>
+	<form action = "" name = "cadCliente" method ="POST">
+		<h5> Cadastro de Cliente </h5><br>
 		<table border='0'>
 			<tr>
 				<th align=left>Nome:</th><td> <input type="text" name = "nome" id = "nome" required></td>
@@ -40,24 +40,21 @@
 				<th align=left>Senha:</th><td> <input type="password" name = "senha" id = "senha" required></td>	
 			</tr>
 			<tr>
-				<th align=left>Foto:</th><td> <input type="text" name = "foto" id = "foto" ></td>	<!--required campo obrigatório-->
-			</tr>
-			<tr>
-				<th align=left>Tipo de Serviço:</th><td> <input type="number" name = "idservico" id = "idservico" required></td>
+				<th align=left>Foto:</th><td> <input type="text" name = "foto" id = "foto"></td>	
 			</tr>
 			<tr>			
-				<th colspan="2" ><input type="submit" Value="Criar Agenda"></th> 
+				<th colspan="2" ><input type="submit" Value="Cadastrar"></th> 
 			</tr>
 		</table>
 	</form>	
 
 	
 	<?php
-include_once '../class/ClassConexaoPrest.php';
+include_once '../class/ClassConexaoCliente.php';
 
-// PARA CADASTRAR NOVO PRESTADOR DE SERVIÇO
-if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG']) && isset($_POST['CEP']) && isset($_POST['endereco']) && isset($_POST['cidade']) && isset($_POST['UF']) && isset($_POST['telefone']) && isset($_POST['celular']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['foto']) && isset($_POST['idservico'])) {
-	$nome = $_POST['nome']; 
+// PARA CADASTRAR NOVO CLIENTE
+if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG'])&& isset($_POST['CEP']) && isset($_POST['endereco']) && isset($_POST['cidade']) && isset($_POST['UF']) && isset($_POST['telefone']) && isset($_POST['celular']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['foto'])) {
+	$nome = $_POST['nome'];
     $CPF = $_POST['CPF'];
 	$RG = $_POST['RG'];
 	$CEP = $_POST['CEP'];
@@ -69,14 +66,13 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG']) && isse
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	$foto = $_POST['foto'];
-	$idservico = $_POST['idservico'];
     
-	//CHAMADA DO MÉTODO CadastraPrest 
-    $resultado = CadastraPrest($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto, $idservico);
-    if ($resultado == TRUE) {
-		echo header('Location: cadPrestador.php');
+	//CHAMADA DO MÉTODO CadastraCliente 
+    $resultado = CadastraCliente($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto);
+	if ($resultado == TRUE) {
+		echo header('Location: cadCliente.php');
     } else {
-        echo "Profissional cadastrado.";
+        echo "Cliente cadastrado.";
     }
 }
 ?>

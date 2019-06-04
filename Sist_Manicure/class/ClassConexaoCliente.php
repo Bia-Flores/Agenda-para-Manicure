@@ -1,12 +1,12 @@
 <?php
 // # # # # # # CLASSE CONEXÃO COM O BANCO DE DADOS "AGENDA" # # # # # # //
-// # # # # # # PARA CADASTRAR NOVO PROFISSIONAL # # # # # # //
-function CadastraPrest($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto, $idservico){
+// # # # # # # PARA CADASTRAR NOVO CLIENTE # # # # # # //
+function CadastraCliente($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto){
 	$connection;
 	try{		
 		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
 		$connection->beginTransaction();
-		$sql = "INSERT INTO prestador (nome, CPF, RG, CEP, endereco, cidade, UF, telefone, celular, email, senha, foto, idservico) VALUES (:nome, :CPF, :RG, :CEP, :endereco, :cidade, :UF, :telefone, :celular, :email, :senha, :foto, :idservico)";
+		$sql = "INSERT INTO cliente (nome, CPF, RG, CEP, endereco, cidade, UF, telefone, celular, email, senha, foto) VALUES (:nome, :CPF, :RG, :CEP, :endereco, :cidade, :UF, :telefone, :celular, :email, :senha, :foto)";
 		$preparedStatment = $connection->prepare($sql);
 		$preparedStatment->bindParam(":nome", $nome);
 		$preparedStatment->bindParam(":CPF", $CPF);
@@ -20,7 +20,6 @@ function CadastraPrest($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefon
 		$preparedStatment->bindParam(":email", $email);
 		$preparedStatment->bindParam(":senha", $senha);
 		$preparedStatment->bindParam(":foto", $foto);
-		$preparedStatment->bindParam(":idservico", $idservico);
 		$executionResult = $preparedStatment->execute();
 		$connection->commit();
 		
