@@ -2,11 +2,11 @@ body {margin: 0; padding: 0;}
 header {width: 100%;}
 main {width: 100%;}
 footer {width: 100%;}
-ul{margin: 0; padding: 0; list-style: none;}
+ul{margin: 0; padding: 0; list-style: none; float:right; width: 80%;}
 
 
-nav {float: left; width: 100%; background: #ffefbaff; font-weight: bold; font-family: Arial,sans-serif; color: #274e13; }
-nav li{float: left;}
+nav {float: left; width: 100%; background: #ffefbaff; font-weight: bold; font-family: Arial,sans-serif; color: *#274e13; }
+nav li{float: right; padding: 0 10px;}
 
 nav li:first-child{margin-top: 1px;}
 .ind-topo {float: left; width: 100%; background: #000000; }
@@ -15,9 +15,10 @@ nav li:first-child{margin-top: 1px;}
 /*Media queris para dispositivos - */
 /*Smartphone*/
 @media only screen and (max-width: 480px){
-    nav li{position: relative; float: left; top: 51px; width: 90%; display: none; background: #A9CF46; height: 30px; padding-top: 10px; padding-bottom: 10px; /*padding-left: 10%*/; border-bottom: 1px #FFFFFF solid; color: #333333; cursor: pointer;}
+    nav li{position: relative; float: left; top: 50px; width: 100%; display: none; background: red/*#A9CF46*/; height: 30px; padding-top: 10px; padding-bottom: 10px; /*padding-left: 10%*/; border-bottom: 1px #FFFFFF solid; color: #333333; cursor: pointer;}
     .ind-topo {height: 50px; }
     .ind-botao{position: absolute; width: 65%; top: 3px; right: 0; cursor: pointer; padding-right: 10%; text-align: right;}
+	
 	.ind-logo img{margin-top: 3px; max-height: 40px;}
 }
 
@@ -31,12 +32,21 @@ nav li:first-child{margin-top: 1px;}
 
 /*Desktop*/
 @media only screen and (min-width: 769px){
-    nav{position: absolute; height: 60px; /*padding-left: 25%;*/ padding-top: 20px;}
+    nav{/*position: absolute;*/ height: 60px; /*padding-left: 25%;*/ padding-top: 20px;}
         nav li{width: 15%; text-align: center;}
         nav li:last-child{color: #A9CF46;}
     .ind-topo {height: 60px; }
     .ind-botao{display: none;}
     .ind-logo img{max-width: 100%;}
+	
+
+	/*=========================================================
+					FONTE PARA O NOME DO SITE 
+	===========================================================*/
+@font-face{
+	font-family:fonteNome;/*fonteNome é um nome fantasia*/
+	src: url(../font/Lobster.otf);
+}
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -52,11 +62,19 @@ body {
 header{
 	background-color: #ffefbaff;
 }
+
+#name_site{
+	float: right; padding: 0 20px;
+	font-family:fonteNome;
+	color: #274e13;
+	/*font-size: 35px;*/
+}
  
 #banner {
-	padding-top: 3rem;
+	padding-top: 10rem;
 	padding-bottom: 3rem;
 	background-color: #96ff9bff;
+	text-align: center;
 } 
 
 #conteudo {

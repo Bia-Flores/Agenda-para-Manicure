@@ -1,10 +1,8 @@
-<!doctype html>
-<html>
-	<head>
-		<title> Manicure e Pedicure - Cadastro de Administradores </title>
-		<meta charset ='utf-8'>		
-	</head>
-	<body>
+<?php
+	include_once "../cabecalho.php";
+	include_once "../banner.php";
+?>
+
 		<form action = "" name = "cadAdmin" method ="POST">
 			<fieldset>
 				<legend>ADMINISTRADORES </legend><br>
@@ -64,4 +62,8 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['telefone']) &
     }
 }
 
+?>
+
+<?php
+	include_once "../rodape.php";
 ?>
