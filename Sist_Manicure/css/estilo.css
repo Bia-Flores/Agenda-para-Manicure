@@ -49,7 +49,7 @@ nav li:first-child{margin-top: 1px;}
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -64,10 +64,17 @@ header{
 }
 
 #name_site{
-	float: right; padding: 0 20px;
+	display: flex;
+    align-items: center;
+    justify-content: flex-end;
+	padding: 0 20px;
 	font-family:fonteNome;
 	color: #274e13;
-	/*font-size: 35px;*/
+}
+
+#container1{
+	width: 70%;
+	font-size: 33px;
 }
  
 #banner {
@@ -92,4 +99,5 @@ header{
 footer{
 	padding-top: 3rem;
 	padding-bottom: 3rem;
+	background-color: #96ff9bff;
 }

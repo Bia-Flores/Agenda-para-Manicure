@@ -2,7 +2,10 @@
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 ?>
-
+	<!-- CSS DE ESTILO-->
+	<link href="../css/estilo.css" rel="stylesheet">	
+		
+	<div class="col-lg-12 mx-auto">	
 		<form action = "" name = "cadAdmin" method ="POST">
 			<fieldset>
 				<legend>ADMINISTRADORES </legend><br>
@@ -37,8 +40,7 @@
 					</table>
 			</fieldset>
 		</form>	
-	</body>
-</html>
+	</div>
 
 <?php
 include_once '../class/ClassConexaoAdmin.php';

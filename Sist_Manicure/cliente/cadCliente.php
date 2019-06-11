@@ -1,7 +1,9 @@
-<!--<?php
+<?php
 	include_once "../cabecalho.php";
+	include_once "../banner.php";
 ?>
--->
+	<!-- CSS DE ESTILO-->
+	<link href="../css/estilo.css" rel="stylesheet">	
 
 	<form action = "" name = "cadCliente" method ="POST">
 		<h5> Cadastro de Cliente </h5><br>
@@ -75,4 +77,9 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG'])&& isset
         echo "Cliente cadastrado.";
     }
 }
+?>
+
+
+<?php
+	include_once "../rodape.php";
 ?>
