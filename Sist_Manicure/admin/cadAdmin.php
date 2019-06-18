@@ -5,11 +5,11 @@
 	<!-- CSS DE ESTILO-->
 	<link href="../css/estilo.css" rel="stylesheet">	
 		
-	<div class="col-lg-12 mx-auto">	
-		<form action = "" name = "cadAdmin" method ="POST">
-			<fieldset>
-				<legend>ADMINISTRADORES </legend><br>
-					<table border='0'>
+	<div class="col-lg-12 mx-auto" style = "margin-right: 20px; margin-left: 20px">	
+		<form action = "" name = "cadAdmin" method ="POST" >
+			<!--fieldset-->
+				<legend><b>ADMINISTRADORES </b></legend><br>
+					<table border='0' >
 						<tr>
 							<th align=left>Nome:</th><td> <input type="text" name="nome" id="nome" required></td>
 						</tr>
@@ -38,7 +38,7 @@
 											</th> 
 						</tr>
 					</table>
-			</fieldset>
+			<!--/fieldset-->
 		</form>	
 	</div>
 

@@ -41,3 +41,31 @@ function CadastraCliente($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telef
 		}
 	}
 }
+
+// # # # # # # PARA LISTAR CLIENTE # # # # # # //
+
+//idclie $nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto
+
+function BuscarCliente($nome) {
+    $connection;
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idclie, nome, CPF, RG, CEP, endereco, cidade, UF, telefone, celular, email, senha, foto FROM cliente WHERE nome LIKE '%{$nome}%'";
+        $preparedStatment = $connection->prepare($sql);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
