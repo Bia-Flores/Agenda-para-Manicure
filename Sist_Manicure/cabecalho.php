@@ -44,30 +44,28 @@
 						SESSÃO DE MENUS
 	=============================================================-->
 	
-	<nav>
-		<!--<div class="container">	
-			<div class="navbar" id="navbarResponsive">-->
+	<nav class="menu">
+		<ul>
+			<li>
+				<a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Admin</a>
+			</li>
+			<li>
+				<a class="nav-link js-scroll-trigger" href="#agenda">Agenda</a>
+			</li>
+			<li>Cliente
 				<ul>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Admin</a>
-					</li>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="#agenda">Agenda</a>
-					</li>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cliente</a>
-					</li>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="#prestador">Prestador</a>
-					</li>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="#servico">Serviços</a>
-					</li>
+					<li><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
 				</ul>
-			<!--</div>
-		</div>-->
-	</nav>
-	
+			</li>
+			<li>
+				<a class="nav-link js-scroll-trigger" href="#prestador">Prestador</a>
+			</li>
+			<li>
+				<a class="nav-link js-scroll-trigger" href="#servico">Serviços</a>
+			</li>
+		</ul>
+	</nav
 	<!--===========================================================
 					DIV PARA O LOGO E BOTÃO DE MENU
 	=============================================================-->

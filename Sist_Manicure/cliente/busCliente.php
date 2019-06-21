@@ -4,14 +4,24 @@
 ?>
 	<!-- CSS DE ESTILO-->
 	<link href="../css/estilo.css" rel="stylesheet">	
+	
+	<form action = "" name = "Animais" method = "POST">
+			<fieldset>
+				<legend> Buscar Cliente </legend><br>
+				Nome do Cliente: <input type="text" name = "nome" id = "nome" required><br><br>
+				
+				<input type="submit" Value="Buscar Cadastro"> 
+				<button> <a href = 'MenuVet.php'> Voltar Menu </a></button><br><br>
+			</fieldset>
+</form>
 
 
 <?php
     if (isset($_POST['nome'])) {
         include_once '../class/ClassConexaoCliente.php';
         
-		$Nome = $_POST['nome'];
-
+		$nome = $_POST['nome'];
+		
         $ObjCliente = BuscarCliente($nome);
         echo " <table border='1'>
                    <tr>
@@ -47,7 +57,7 @@
 			echo'<td>' . $cliente['foto'] . '</td>';
 			echo'</tr>';
 			echo'<tr>';
-            echo'<td align=center colspan = 6 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar</a></td>';
+            echo'<td align=center colspan = 13 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar Cadastro</a></td>';
             echo'</tr>';
         }
     }

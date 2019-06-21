@@ -7,38 +7,37 @@
 
 <?php
 	include_once '../class/ClassConexaoCliente.php';
-	//idclie, nome, CPF, RG, CEP, endereco, cidade, UF, telefone, celular, email, senha, foto
-	$idclie="";
-	$nome="";
-	$CPF="";
-	$RG="";
-	$CEP="";
-	$endereco="";
-	$cidade="";
-	$UF="";
-	$telefone="";
-	$celular="";
-	$email="";
-	$senha="";
-	$foto="";
+	$Cod_Cliente="";
+	$Nome_Cliente="";
+	$CPF_Cliente="";
+	$RG_Cliente="";
+	$CEP_Cliente="";
+	$End_Cliente="";
+	$Cidade_Cliente="";
+	$UF_Cliente="";
+	$Fone_Cliente="";
+	$Celular_Cliente="";
+	$Email_Cliente="";
+	$Senha_Cliente="";
+	$Foto_Cliente="";
 	
 	if(isset($_GET['idclie'])){
-		$idclie=$_GET['idclie'];
-		$cliente=BuscaRegAnimal($idclie);
+		$IDCliente=$_GET['idclie'];
+		$cliente=BuscaRegCliente($IDCliente);
 		
-		$idclie=$cliente[0]['idclie'];
-		$nome=$cliente[0]['nome'];
-		$CPF=$cliente[0]['CPF'];
-		$RG=$cliente[0]['RG'];
-		$CEP=$cliente[0]['CEP'];
-		$endereco=$cliente[0]['endereco'];
-		$cidade=$cliente[0]['cidade'];
-		$UF=$cliente[0]['UF'];
-		$telefone=$cliente[0]['telefone'];
-		$celular=$cliente[0]['celular'];
-		$email=$cliente[0]['email'];
-		$senha=$cliente[0]['senha'];
-		$foto=$cliente[0]['foto'];
+		$Cod_Cliente=$cliente[0]['idclie'];
+		$Nome_Cliente=$cliente[0]['nome'];
+		$CPF_Cliente=$cliente[0]['CPF'];
+		$RG_Cliente=$cliente[0]['RG'];
+		$CEP_Cliente=$cliente[0]['CEP'];
+		$End_Cliente=$cliente[0]['endereco'];
+		$Cidade_Cliente=$cliente[0]['cidade'];
+		$UF_Cliente=$cliente[0]['UF'];
+		$Fone_Cliente=$cliente[0]['telefone'];
+		$Celular_Cliente=$cliente[0]['celular'];
+		$Email_Cliente=$cliente[0]['email'];
+		$Senha_Cliente=$cliente[0]['senha'];
+		$Foto_Cliente=$cliente[0]['foto'];
 	}
 ?>
 
@@ -47,69 +46,56 @@
 		<table border='0'>
 			<tr>
 				<th align=left>Nome:</th><td> <input type="text" name = "nome" id = "nome" required></td>
-			</tr>
-			<tr>
-				<th align=left>CPF:</th><td> <input type="text" name = "CPF" id = "CPF" required></td>
-			</tr>
-			<tr>
-				<th align=left>RG:</th><td> <input type="text" name = "RG" id = "RG" required></td>
-			</tr>
-			<tr>
-				<th align=left>CEP:</th><td> <input type="text" name = "CEP" id = "CEP" required></td>
-			</tr>
-			<tr>
-				<th align=left>Endereço:</th><td> <input type="text" name = "endereco" id = "endereco" required></td>
-			</tr>
-			<tr>
-				<th align=left>Cidade:</th><td> <input type="text" name = "cidade" id = "cidade" required></td>
-			</tr>
-			<tr>
 				<th align=left>UF:</th><td> <input type="text" name = "UF" id = "UF" required></td>
 			</tr>
 			<tr>
+				<th align=left>CPF:</th><td> <input type="text" name = "CPF" id = "CPF" required></td>
 				<th align=left>Telefone:</th><td> <input type="text" name = "telefone" id = "telefone" required></td>
 			</tr>
 			<tr>
+				<th align=left>RG:</th><td> <input type="text" name = "RG" id = "RG" required></td>
 				<th align=left>Celular:</th><td> <input type="text" name = "celular" id = "celular" required></td>
 			</tr>
-			<tr>			
+			<tr>
+				<th align=left>CEP:</th><td> <input type="text" name = "CEP" id = "CEP" required></td>
 				<th align=left>E-mail:</th><td> <input type="text" name = "email" id = "email" required></td>	
 			</tr>
 			<tr>
+				<th align=left>Endereço:</th><td> <input type="text" name = "endereco" id = "endereco" required></td>
 				<th align=left>Senha:</th><td> <input type="password" name = "senha" id = "senha" required></td>	
 			</tr>
 			<tr>
+				<th align=left>Cidade:</th><td> <input type="text" name = "cidade" id = "cidade" required></td>
 				<th align=left>Foto:</th><td> <input type="text" name = "foto" id = "foto"></td>	
 			</tr>
 			<tr>			
-				<th colspan="2" ><input type="submit" Value="Cadastrar"></th> 
+				<th colspan="2" ><input type="submit" Value="Salvar Alterações"></th> 
 			</tr>
 		</table>
 		
-		
-		Código Cliente: <input type="number" name="idAnimais" id="idAnimais" required value=<?php echo $CodAnimal?>><br><br>
-		Nome do Cliente: <input type="text" name="Nome" id="Nome" required value=<?php echo $NomeAnimal?>><br><br>
-		Data Nascimento Animal: <input type="date" name="DtNasc" id="DtNasc" required value=<?php echo $NascAnimal?>><br><br>
-		Nome do Proprietário: <input type="text" name="NomeDono" id="NomeDono" required value=<?php echo $NomeProp?>><br><br>
-		E-mail do Proprietário:<input type="text" name="Email" id="Email" required value=<?php echo $EmailProp?>><br><br>
-		Raça do Animal:<input type="text" name="Raca" id="Raca" required value=<?php echo $RacaAnimal?>><br><br>
-				
-		<input type="submit" value="Salvar Alterações">
+	</form>
 	
-		<button><a href="MenuVet.php"> Voltar Menu </a></button>
-		</form>
-	</body>
-</html>
+<?php
+if(isset($_POST['idclie'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& isset($_POST['RG'])&& isset($_POST['CEP'])&& isset($_POST['endereco'])&& isset($_POST['cidade'])&& isset($_POST['UF'])&& isset($_POST['telefone'])&& isset($_POST['celular'])&& isset($_POST['email'])&& isset($_POST['senha'])&& isset($_POST['foto'])){
+	$Cod_Cliente=$_POST['idclie'];
+	$Nome_Cliente=$_POST['nome'];
+	$CPF_Cliente=$_POST['CPF'];
+	$RG_Cliente=$_POST['RG'];
+	$CEP_Cliente=$_POST['CEP'];
+	$End_Cliente=$_POST['endereco'];
+	$Cidade_Cliente=$_POST['cidade'];
+	$UF_Cliente=$_POST['UF'];
+	$Fone_Cliente=$_POST['telefone'];
+	$Celular_Cliente=$_POST['celular'];
+	$Email_Cliente=$_POST['email'];
+	$Senha_Cliente=$_POST['senha'];
+	$Foto_Cliente=$_POST['foto'];
+	
+	$resultado=AlterarCliente($Cod_Cliente, $Nome_Cliente, $CPF_Cliente, $RG_Cliente, $CEP_Cliente, $End_Cliente, $Cidade_Cliente, $UF_Cliente, $Fone_Cliente, $Celular_Cliente, $Email_Cliente, $Senha_Cliente, $Foto_Cliente);
+}
+?>
+
 
 <?php
-if(isset($_POST['idAnimais'])&& isset($_POST['Nome'])&& isset($_POST['DtNasc'])&& isset($_POST['NomeDono'])&& isset($_POST['Email'])&& isset($_POST['Raca'])){
-	$CodAnimal=$_POST['idAnimais'];
-	$NomeAnimal=$_POST['Nome'];
-	$NascAnimal=$_POST['DtNasc'];
-	$NomeProp=$_POST['NomeDono'];
-	$EmailProp=$_POST['Email'];
-	$RacaAnimal=$_POST['Raca'];
-	
-	$resultado=AlterarAnimais($CodAnimal, $NomeAnimal, $NascAnimal, $NomeProp, $EmailProp, $RacaAnimal);
-}
+	include_once "../rodape.php";
 ?>

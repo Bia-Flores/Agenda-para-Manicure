@@ -12,6 +12,7 @@ nav li:first-child{margin-top: 1px;}
 .ind-topo {float: left; width: 100%; background: #000000; }
 .ind-logo{position: absolute; width: 25%; left: 0; top: 0; text-align: center;}
 
+
 /*Media queris para dispositivos - */
 /*Smartphone*/
 @media only screen and (max-width: 480px){
@@ -62,6 +63,19 @@ body {
 header{
 	background-color: #ffefbaff;
 }
+
+.menu ul li {
+	color: *#274e13;
+
+	position: relative;
+}
+
+.menu ul li:hover{background-color:#ffe799;}/*para colocar cor quando o mouse posicionar*/
+.menu ul{padding:0;}
+.menu ul ul{display:none;}
+.menu ul li:hover>ul{display:block;}
+.menu a{color:#274e13; text-decoration:none;}/*text-decoration para tirar o sublinhado de link*/
+
 
 #name_site{
 	display: flex;
