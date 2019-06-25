@@ -36,3 +36,29 @@ function CadastraAdmin($nome, $CPF, $telefone, $celular, $email, $senha, $foto){
 		}
 	}
 }
+
+// # # # # # # PARA LISTAR ADMINISTRADOR # # # # # # //
+function BuscarAdmin($nome) {
+    $connection;
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        //idadmim, nome, CPF, telefone, celular, email, senha, foto
+		$sql = "SELECT idadmim, nome, CPF, telefone, celular, email, senha, foto FROM administrador WHERE nome LIKE '%{$nome}%'";
+        $preparedStatment = $connection->prepare($sql);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}

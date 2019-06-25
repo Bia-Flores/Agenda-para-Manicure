@@ -46,8 +46,11 @@
 	
 	<nav class="menu">
 		<ul>
-			<li>
-				<a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Admin</a>
+			<li>Admin
+				<ul>
+					<li><a class="nav-link js-scroll-trigger" href="../admin/busAdmin.php">Buscar/Editar</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Cadastrar</a></li>
+				</ul>
 			</li>
 			<li>
 				<a class="nav-link js-scroll-trigger" href="#agenda">Agenda</a>

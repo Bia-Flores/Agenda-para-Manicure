@@ -5,7 +5,7 @@
 	<!-- CSS DE ESTILO-->
 	<link href="../css/estilo.css" rel="stylesheet">	
 	
-	<form action = "" name = "Animais" method = "POST">
+	<form action = "" name = "cliente" method = "POST">
 			<fieldset>
 				<legend> Buscar Cliente </legend><br>
 				Nome do Cliente: <input type="text" name = "nome" id = "nome" required><br><br>
