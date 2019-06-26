@@ -61,8 +61,11 @@
 					<li><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
 				</ul>
 			</li>
-			<li>
-				<a class="nav-link js-scroll-trigger" href="#prestador">Prestador</a>
+			<li>Prestador
+				<ul>
+					<li><a class="nav-link js-scroll-trigger" href="#prestador">Buscar/Editar</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="#prestador">Cadastrar</a></li>
+				</ul>
 			</li>
 			<li>
 				<a class="nav-link js-scroll-trigger" href="#servico">Serviços</a>

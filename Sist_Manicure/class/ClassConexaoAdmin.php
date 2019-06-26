@@ -42,7 +42,6 @@ function BuscarAdmin($nome) {
     $connection;
     try {
    		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-        //idadmim, nome, CPF, telefone, celular, email, senha, foto
 		$sql = "SELECT idadmim, nome, CPF, telefone, celular, email, senha, foto FROM administrador WHERE nome LIKE '%{$nome}%'";
         $preparedStatment = $connection->prepare($sql);
 
@@ -61,4 +60,64 @@ function BuscarAdmin($nome) {
             unset($connection);
         }
     }
+}
+
+// # # # # # PARA LISTAR OS DADOS POR CÓDIGO DA TABELA ADMINISTRADOR # # # # # //
+function BuscaRegAdmin($idadmim) {
+    $connection;
+	//idadmim, nome, CPF, telefone, celular, email, senha, foto
+    try {
+		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idadmim, nome, CPF, telefone, celular, email, senha, foto FROM administrador WHERE idadmim = :idadmim";
+        $preparedStatment = $connection->prepare($sql);
+        $preparedStatment->bindParam(":idadmim", $idadmim);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+// # # # # # FUNÇÃO PARA ALTERAR OS DADOS DA TABELA ADMINISTRADOR # # # # # //
+function AlterarAdmin($idAnimais, $Nome, $DtNasc, $NomeDono, $Email, $Raca) {
+    $connection;
+    try {
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=veterinaria', 'root', '');
+        $connection->beginTransaction();
+        $sql = "UPDATE administrador SET nome = :nome, CPF = :CPF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto";
+		$preparedStatment = $connection->prepare($sql);
+		//idadmim, nome, CPF, telefone, celular, email, senha, foto
+        $preparedStatment->bindParam(":idadmim", $idadmim);
+        $preparedStatment->bindParam(":nome", $nome);
+        $preparedStatment->bindParam(":CPF", $CPF);
+		$preparedStatment->bindParam(":telefone", $telefone);
+		$preparedStatment->bindParam(":celular", $celular);
+		$preparedStatment->bindParam(":email", $email);
+		$preparedStatment->bindParam(":senha", $senha);
+		$preparedStatment->bindParam(":foto", $foto);
+		$preparedStatment->execute();
+        $executionResult = $preparedStatment->execute();
+        $connection->commit();
+
+	} catch (PDOException $exc) {
+		if ((isset($connection)) && ($connection->inTransaction())) {
+			$connection->rollBack();
+		}
+		print $exc->getMessage();
+	} finally {
+		if (isset($connection)) {
+			unset($connection);
+		}
+	}
 }

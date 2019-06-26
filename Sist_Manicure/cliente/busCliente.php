@@ -11,7 +11,6 @@
 				Nome do Cliente: <input type="text" name = "nome" id = "nome" required><br><br>
 				
 				<input type="submit" Value="Buscar Cadastro"> 
-				<button> <a href = 'MenuVet.php'> Voltar Menu </a></button><br><br>
 			</fieldset>
 </form>
 

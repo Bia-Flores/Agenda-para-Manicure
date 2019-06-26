@@ -101,7 +101,7 @@ function AlterarCliente($idclie, $nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF
     try {
         $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
         $connection->beginTransaction();
-        $sql = "UPDATE cliente SET nome = :nome, CPF = :CPF, RG = :RG, CEP = :CEP, endereco = :endereco, cidade = :cidade, UF = :UF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto";
+		$sql = "UPDATE cliente SET nome = :nome, CPF = :CPF, RG = :RG, CEP = :CEP, endereco = :endereco, cidade = :cidade, UF = :UF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto";
         $preparedStatment = $connection->prepare($sql);
         $preparedStatment->bindParam(":idclie", $idclie);
         $preparedStatment->bindParam(":nome", $nome);
