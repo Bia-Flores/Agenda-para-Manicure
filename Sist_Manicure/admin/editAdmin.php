@@ -86,6 +86,7 @@ if(isset($_POST['idadmim'])&& isset($_POST['Nome'])&& isset($_POST['DtNasc'])&& 
 
 
 <?php
+	include_once "../publicidade.php";
 	include_once "../rodape.php";
 ?>
 

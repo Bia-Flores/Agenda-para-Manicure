@@ -32,10 +32,7 @@
 							<th align=left>Foto:</th><td> <input type="text" name="foto" id="foto" ></td>	
 						</tr>
 						<tr>			
-							<th colspan="2" ><input type="submit" Value="Cadastrar">
-											<input type="submit" Value="Editar">
-											<input type="submit" Value="Excluir">
-											</th> 
+							<th colspan="2" ><input type="submit" Value="Cadastrar"></th> 
 						</tr>
 					</table>
 			<!--/fieldset-->
@@ -67,5 +64,6 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['telefone']) &
 ?>
 
 <?php
+	include_once "../publicidade.php";
 	include_once "../rodape.php";
 ?>

@@ -54,5 +54,6 @@
 
 
 <?php
+	include_once "../publicidade.php";
 	include_once "../rodape.php";
 ?>

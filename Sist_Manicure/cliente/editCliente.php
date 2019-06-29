@@ -98,7 +98,7 @@ if(isset($_POST['idclie'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& isse
 }
 ?>
 
-
 <?php
+	include_once "../publicidade.php";
 	include_once "../rodape.php";
 ?>

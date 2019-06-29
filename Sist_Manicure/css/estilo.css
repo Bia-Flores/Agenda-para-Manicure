@@ -92,26 +92,21 @@ header{
 }
  
 #banner {
-	padding-top: 10rem;
+	padding-top: 3rem;
 	padding-bottom: 3rem;
 	background-color: #96ff9bff;
 	text-align: center;
 } 
 
 #conteudo {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
 	background-color: #f3f3f3ff;
 }
 
 #publicidade {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+	margin: 0 auto;
 	background-color: #96ff9bff;
 }
  
 footer{
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	background-color: #96ff9bff;
+	background-color: #ffefbaff;
 }

@@ -70,6 +70,7 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG']) && isse
 ?>
 
 <?php
+	include_once "../publicidade.php";
 	include_once "../rodape.php";
 ?>
 
