@@ -56,13 +56,13 @@
 					<li>
 						<a class="nav-link js-scroll-trigger" href="#agenda">Agenda</a>
 					</li>
-					<li><p style="margin:0">Cliente</p>
+					<li><p style="margin-top:0">Cliente</p>
 						<ul>
 							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
 							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
 						</ul>
 					</li>
-					<li><p style="margin:0">Prestador</p>
+					<li><p style="margin-top:0">Prestador</p>
 						<ul>
 							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="#prestador">Buscar/Editar</a></li>
 							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="#prestador">Cadastrar</a></li>

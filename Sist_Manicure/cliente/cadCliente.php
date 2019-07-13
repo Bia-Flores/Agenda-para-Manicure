@@ -1,6 +1,11 @@
 <?php
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
+	
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );
+
+
 ?>
 	<!-- CSS DE ESTILO-->
 	<link href="../css/estilo.css" rel="stylesheet">	
@@ -60,7 +65,7 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG'])&& isset
 	//CHAMADA DO MÉTODO CadastraCliente 
     $resultado = CadastraCliente($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto);
 	if ($resultado == TRUE) {
-		echo header('Location: cadCliente.php');
+		header('location: cadCliente.php');
     } else {
         echo "Cliente cadastrado.";
     }

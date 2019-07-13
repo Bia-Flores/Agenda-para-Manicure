@@ -4,3 +4,9 @@ $(document).ready(function(){
 		$('.nav li').toggle();
 	})
 });
+
+$('#table-milagre').ready(function(){
+	console.log("olar");
+	$('#publicidade').css('margin-top',100);	
+});
+

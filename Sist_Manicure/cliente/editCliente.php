@@ -45,31 +45,31 @@
 		<legend><b> ATUALIZAR CADASTRO </legend>
 		<table border='0' >
 			<tr>
-				<th align=left>Código:</th><td> <input type="label" name = "idclie" id = "idclie" required value=<?php echo $Cod_Cliente?>></td>
-				<th align=left>UF:</th><td> <input type="text" name = "UF" id = "UF" required value=<?php echo $UF_Cliente?>></td>
+				<th align=left>Código:</th><td> <input type="label" name="idclie" id="idclie" value="<?php echo $Cod_Cliente?>" required></td>
+				<th align=left>UF:</th><td> <input type="text" name="UF" id="UF" value="<?php echo $UF_Cliente?>" required></td>
 			</tr>
 			<tr>
-				<th align=left>Nome:</th><td> <input type="text" name = "nome" id = "nome" required value=<?php echo $Nome_Cliente?>></td>
-				<th align=left>Telefone:</th><td> <input type="text" name = "telefone" id = "telefone" required value=<?php echo $Fone_Cliente?>></td>
+				<th align=left>Nome:</th><td> <input type="text" name="nome" id="nome" value="<?php echo $Nome_Cliente?>" required></td>
+				<th align=left>Telefone:</th><td> <input type="text" name="telefone" id="telefone" value="<?php echo $Fone_Cliente?>" required></td>
 			</tr>
 			<tr>
-				<th align=left>CPF:</th><td> <input type="text" name = "CPF" id = "CPF" required value=<?php echo $CPF_Cliente?>></td>
-				<th align=left>Celular:</th><td> <input type="text" name = "celular" id = "celular" required value=<?php echo $Celular_Cliente?>></td>
+				<th align=left>CPF:</th><td> <input type="text" name="CPF" id="CPF"  value="<?php echo $CPF_Cliente?>" required></td>
+				<th align=left>Celular:</th><td> <input type="text" name="celular" id="celular" value="<?php echo $Celular_Cliente?>" required></td>
 			</tr>
 			<tr>
-				<th align=left>RG:</th><td> <input type="text" name = "RG" id = "RG" required value=<?php echo $RG_Cliente?>></td>
-				<th align=left>E-mail:</th><td> <input type="text" name = "email" id = "email" required value=<?php echo $Email_Cliente?>></td>	
+				<th align=left>RG:</th><td> <input type="text" name="RG" id="RG" value="<?php echo $RG_Cliente?>" required></td>
+				<th align=left>E-mail:</th><td> <input type="text" name="email" id="email" value="<?php echo $Email_Cliente?>" required></td>	
 			</tr>
 			<tr>
-				<th align=left>CEP:</th><td> <input type="text" name = "CEP" id = "CEP" required value=<?php echo $CEP_Cliente?>></td>
-				<th align=left>Senha:</th><td> <input type="password" name = "senha" id = "senha" required value=<?php echo $Senha_Cliente?>></td>
+				<th align=left>CEP:</th><td> <input type="text" name="CEP" id="CEP" value="<?php echo $CEP_Cliente?>" required></td>
+				<th align=left>Senha:</th><td> <input type="password" name="senha" id="senha" value="<?php echo $Senha_Cliente?>" required></td>
 			</tr>
 			<tr>
-				<th align=left>Endereço:</th><td> <input type="text" name = "endereco" id = "endereco" required value=<?php echo $End_Cliente?>></td>
-				<th align=left>Foto:</th><td> <input type="text" name = "foto" id = "foto" value=<?php echo $Foto_Cliente?>></td>	
+				<th align=left>Endereço:</th><td> <input type="text" name="endereco" id="endereco" value="<?php echo $End_Cliente?>" required ></td>
+				<th align=left>Foto:</th><td> <input type="text" name = "foto" id = "foto" value="<?php echo $Foto_Cliente?>"></td>	
 			</tr>
 			<tr>
-				<th align=left>Cidade:</th><td> <input type="text" name = "cidade" id = "cidade" required value=<?php echo $Cidade_Cliente?>></td>
+				<th align=left>Cidade:</th><td> <input type="text" name="cidade" id="cidade" value="<?php echo $Cidade_Cliente?>" required ></td>
 			</tr>
 			<tr>			
 				<td colspan="2" ><input type="submit" Value="Salvar Alterações"></td> 

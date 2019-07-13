@@ -1,6 +1,14 @@
 <?php
+	session_start();
+	include_once "login_Ok.php";
+	
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
+	
+	/*/ PARA ELIMINAR OS ERROS REPORTADOS 
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );*/
+
 ?>
 	<!-- CSS DE ESTILO-->
 	<link href="../css/estilo.css" rel="stylesheet">	
@@ -44,20 +52,22 @@ include_once '../class/ClassConexaoAdmin.php';
 
 // PARA CADASTRAR NOVO ADMINISTRADOR
 if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['telefone']) && isset($_POST['celular']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['foto'])) {
+	$MD5 = md5($_POST['senha']);
 	$nome = $_POST['nome'];
     $CPF = $_POST['CPF'];
     $telefone = $_POST['telefone'];
 	$celular = $_POST['celular'];
 	$email = $_POST['email'];
-	$senha = $_POST['senha'];
+	//$senha = $_POST['senha'];
 	$foto = $_POST['foto'];
+	$senha = $MD5;
     
 	//CHAMADA DO MÉTODO CadastraAdmin 
     $resultado = CadastraAdmin($nome, $CPF, $telefone, $celular, $email, $senha, $foto);
     if ($resultado == TRUE) {
-		echo header('Location: cadAdmin.php');
-    } else {
-        echo "Administrador cadastrado.";
+		//echo header("Loaction: cadAdmin.php"); 
+    //} else {
+      //  echo "Administrador cadastrado.";
     }
 }
 

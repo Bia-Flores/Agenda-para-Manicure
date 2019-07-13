@@ -1,5 +1,6 @@
 <?php
 // # # # # # # CLASSE CONEXÃO COM O BANCO DE DADOS "AGENDA" # # # # # # //
+
 // # # # # # # PARA CADASTRAR NOVO ADMINISTRADOR # # # # # # //
 function CadastraAdmin($nome, $CPF, $telefone, $celular, $email, $senha, $foto){
 	$connection;
@@ -65,7 +66,6 @@ function BuscarAdmin($nome) {
 // # # # # # PARA LISTAR OS DADOS POR CÓDIGO DA TABELA ADMINISTRADOR # # # # # //
 function BuscaRegAdmin($idadmim) {
     $connection;
-	//idadmim, nome, CPF, telefone, celular, email, senha, foto
     try {
 		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
         $sql = "SELECT idadmim, nome, CPF, telefone, celular, email, senha, foto FROM administrador WHERE idadmim = :idadmim";
@@ -90,12 +90,12 @@ function BuscaRegAdmin($idadmim) {
 }
 
 // # # # # # FUNÇÃO PARA ALTERAR OS DADOS DA TABELA ADMINISTRADOR # # # # # //
-function AlterarAdmin($idAnimais, $Nome, $DtNasc, $NomeDono, $Email, $Raca) {
+function AlterarAdmin($idadmim, $nome, $CPF, $telefone, $celular, $email, $senha, $foto) {
     $connection;
     try {
-        $connection = new PDO('mysql:host=127.0.0.1;dbname=veterinaria', 'root', '');
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
         $connection->beginTransaction();
-        $sql = "UPDATE administrador SET nome = :nome, CPF = :CPF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto";
+        $sql = "UPDATE administrador SET nome = :nome, CPF = :CPF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto WHERE idadmim = :idadmim";
 		$preparedStatment = $connection->prepare($sql);
 		//idadmim, nome, CPF, telefone, celular, email, senha, foto
         $preparedStatment->bindParam(":idadmim", $idadmim);
@@ -110,6 +110,8 @@ function AlterarAdmin($idAnimais, $Nome, $DtNasc, $NomeDono, $Email, $Raca) {
         $executionResult = $preparedStatment->execute();
         $connection->commit();
 
+		var_dump ($sql);
+		
 	} catch (PDOException $exc) {
 		if ((isset($connection)) && ($connection->inTransaction())) {
 			$connection->rollBack();
@@ -121,3 +123,31 @@ function AlterarAdmin($idAnimais, $Nome, $DtNasc, $NomeDono, $Email, $Raca) {
 		}
 	}
 }
+
+// # # # # FUNÇÃO PARA LOGAR ADMINISTRADOR # # # # # //
+function LogAdmin($CPF, $senha) {
+    $connection;
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+		$sql = "SELECT CPF, senha FROM administrador WHERE CPF = :CPF AND senha = :senha";
+        $preparedStatment = $connection->prepare($sql);
+		$preparedStatment->bindParam(":CPF", $CPF);
+		$preparedStatment->bindParam(":senha", $senha);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
