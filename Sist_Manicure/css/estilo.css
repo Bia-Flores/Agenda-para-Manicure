@@ -76,7 +76,8 @@ header{
 .menu ul li:hover>ul{display:block;}
 .menu a{color:#274e13; text-decoration:none;}/*text-decoration para tirar o sublinhado de link*/
 .menu {border-radius: 20px;/*cantos arredondados*/
-		padding-top: 10px;}
+		padding-top: 10px; }
+.nemu p {color:#274e13;}
 
 span a {text-decoration:none;}
 		
@@ -128,4 +129,20 @@ footer p{
 	font-family:fonteNome;
 	color: #274e13;
 	font-size: 18px;
+}
+
+#servico{
+	background-color: #f3f3f3ff;
+	float:left;/*define que o elemento deve flutuar à esquerda*/
+	width: 50%;/*largura*/
+	text-align: center;
+	height: 200px; 
+	}
+
+#tipoServ{
+	text-align: center;
+	background-color: #f3f3f3ff;
+	float:right; /*define que o elemento deve flutuar à direita*/
+	width: 50%;/*largura*/
+	height: 200px; 
 }

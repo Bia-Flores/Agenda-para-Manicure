@@ -1,4 +1,5 @@
 <?php
+
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 	
@@ -62,7 +63,7 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG'])&& isset
 	$senha = $_POST['senha'];
 	$foto = $_POST['foto'];
     
-	//CHAMADA DO MÉTODO CadastraCliente 
+	//CHAMADA DO MÉTODO CADASTRA CLIENTE 
     $resultado = CadastraCliente($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto);
 	if ($resultado == TRUE) {
 		header('location: cadCliente.php');

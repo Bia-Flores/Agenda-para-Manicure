@@ -1,40 +1,52 @@
- <!doctype html>
-<html>
-	<head>	</head>
-	<body>
+<?php
+	ob_start();
+	session_start();
 
-		<form action="" name="logAdmin" method="post">
+	include_once "../cabecalho.php";
+	include_once "../banner.php";
+	
+	/*//PARA ELIMINAR OS ERROS REPORTADOS 
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );*/
+
+?>
+	<!-- CSS DE ESTILO-->
+	<link href="../css/estilo.css" rel="stylesheet">	
+	
+
+		<form action="" name="logAdmin" id='logAdmin' method="post" style="font-weight: bold; text-align:center;">
+			<p>IDENTIFICAÇÃO DE USUÁRIO</P>
 			CPF: <input type="text" name="CPF"/><br><br>
 			Senha: <input type="password" name="senha"/><br><br>
 			<input type="submit"/>
 		</form>
 		
-	</body>
-</html>
 
 <?php
-	session_start();
+
 	include_once '../class/ClassConexaoAdmin.php';
 	
 	if(isset($_POST['CPF'])){
-		/*
-		echo $_POST['senha'];
-		echo '<BR>';
-		echo md5($_POST['senha']);
-		*/
-		$resultado = LogAdmin($_POST['CPF'],$_POST['senha']);
 		
-		//$resultado = LogAdmin($_POST['CPF'],$MD5 = md5($_POST['senha']);
-		var_dump($resultado);
-		if($resultado > 1) {
+		$resultado = LogAdmin($_POST['CPF'], $_POST['senha']);
+		
+		//$resultado = LogAdmin($_POST['CPF'], $_POST['$senha = $MD5']);
+		
+		
+		if($resultado) {
 			$_SESSION['loginADM'] = true;
-			header("location:cadAdmin.php");
+			header('Location:cadAdmin.php');
 		} else {
+			//header("location:login.php");
 			echo "Credenciais inválidas";
-			header("location:login.php");
 		}
 		
 	}
-	else
-		echo "Não logado";	
+	
+?>
+
+
+<?php
+	include_once "../publicidade.php";
+	include_once "../rodape.php";
 ?>

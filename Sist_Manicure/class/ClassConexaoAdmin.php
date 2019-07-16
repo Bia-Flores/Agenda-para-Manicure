@@ -90,6 +90,7 @@ function BuscaRegAdmin($idadmim) {
 }
 
 // # # # # # FUNÇÃO PARA ALTERAR OS DADOS DA TABELA ADMINISTRADOR # # # # # //
+//idadmim, nome, CPF, telefone, celular, email, senha, foto
 function AlterarAdmin($idadmim, $nome, $CPF, $telefone, $celular, $email, $senha, $foto) {
     $connection;
     try {
@@ -97,7 +98,6 @@ function AlterarAdmin($idadmim, $nome, $CPF, $telefone, $celular, $email, $senha
         $connection->beginTransaction();
         $sql = "UPDATE administrador SET nome = :nome, CPF = :CPF, telefone = :telefone, celular = :celular, email = :email, senha = :senha, foto = :foto WHERE idadmim = :idadmim";
 		$preparedStatment = $connection->prepare($sql);
-		//idadmim, nome, CPF, telefone, celular, email, senha, foto
         $preparedStatment->bindParam(":idadmim", $idadmim);
         $preparedStatment->bindParam(":nome", $nome);
         $preparedStatment->bindParam(":CPF", $CPF);
@@ -110,7 +110,7 @@ function AlterarAdmin($idadmim, $nome, $CPF, $telefone, $celular, $email, $senha
         $executionResult = $preparedStatment->execute();
         $connection->commit();
 
-		var_dump ($sql);
+		//var_dump ($sql);
 		
 	} catch (PDOException $exc) {
 		if ((isset($connection)) && ($connection->inTransaction())) {
@@ -136,6 +136,35 @@ function LogAdmin($CPF, $senha) {
 
         if ($preparedStatment->execute() == TRUE) {
             return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+// # # # # FUNÇÃO PARA APAGAR CADASTRO DE ADMINISTRADOR # # # # # //
+function ApagarAdmin($idadmim) {
+    $connection;
+
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+		$sql = "DELETE FROM administrador WHERE idadmim = $idadmim";
+        $preparedStatment = $connection->prepare($sql);
+		//$preparedStatment->bindParam(":idadmim", $idadmim);
+		
+		
+        if ($preparedStatment->execute() == TRUE) {
+            //return $preparedStatment->fetchAll();
+			return TRUE;
         } else {
             return array();
         }

@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	include_once "login_Ok.php";
+	
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 ?>
@@ -23,11 +26,7 @@
 				$nome = $_POST['nome'];
 				//idadmim, nome, CPF, telefone, celular, email, senha, foto
 				$ObjAdmin = BuscarAdmin($nome);
-				echo "<div > <table border='1' id='table-milagre' style='position: absolute;
-    top: 508px;
-    width: 100%;
-    height: auto;
-    background-color: white;'>
+				echo "<div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
 						   <tr>
 							<th>Código</th>
 							 <th>Nome</th>
@@ -35,7 +34,7 @@
 							 <th>Telefone</th>
 							 <th>Celular</th>
 							 <th>E-mail</th>
-							 <th>Senha</th>
+							
 							 <th>Foto</th>
 						   </tr>";
 						   
@@ -47,11 +46,12 @@
 					echo'<td>' . $administrador['telefone'] . '</td>';
 					echo'<td>' . $administrador['celular'] . '</td>';
 					echo'<td>' . $administrador['email'] . '</td>';
-					echo'<td>' . $administrador['senha'] . '</td>';
+					/*echo'<td>' . $administrador['senha'] . '</td>';*/
 					echo'<td>' . $administrador['foto'] . '</td>';
 					echo'</tr>';
 					echo'<tr>';
-					echo'<td align=center colspan = 8 ><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
+					echo'<td align=center colspan = 4 ><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
+					echo'<td align=center colspan = 4 ><a href=excAdmin.php?idadmim=' . $administrador['idadmim'] . '>Excluir Cadastro</a></td>';
 					echo'</tr>';
 				}
 				echo "	</div>";

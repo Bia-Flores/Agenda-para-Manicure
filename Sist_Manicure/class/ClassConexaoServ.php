@@ -1,5 +1,6 @@
 <?php
 // # # # # # # CLASSE CONEXÃO COM O BANCO DE DADOS "AGENDA" # # # # # # //
+// # # # # # # # # TABELA SERVIÇOS # # # # # # # # //
 // # # # # # # PARA CADASTRAR SERVIÇOS # # # # # # //
 function CadastraServ($descricao){
 	$connection;
@@ -31,8 +32,65 @@ function CadastraServ($descricao){
 	}
 }
 
+
+// # # # # # # PARA LISTAR SERVIÇO # # # # # # //
+function BuscarServico($descricao) {
+    $connection;
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idserv, descricao FROM servico WHERE descricao LIKE '%{$descricao}%'";
+        $preparedStatment = $connection->prepare($sql);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+
+// # # # # # PARA BUSCAR OS SERVIÇO POR CÓDIGO # # # # # //
+//idserv, descricao
+function BuscaRegServico($idserv) {
+    $connection;
+    try {
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idserv, descricao FROM servico WHERE idserv = :idserv";
+        $preparedStatment = $connection->prepare($sql);
+        $preparedStatment->bindParam(":idclie", $idclie);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+
+
+// # # # # # # # # TABELA TIPOS DE SERVIÇOS # # # # # # # # //
 // # # # # # # PARA CADASTRAR TIPOS DE SERVIÇOS # # # # # # //
-function CadastroTipoServ($idservico, $descricao){
+function CadastroTipoServ($idtipo, $idservico, $descricao){
 	$connection;
 	try{
 		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
@@ -61,4 +119,59 @@ function CadastroTipoServ($idservico, $descricao){
 			unset($connection);
 		}
 	}
+}
+
+
+// # # # # # # PARA LISTAR TIPO DE SERVIÇO # # # # # # //
+function BuscarTipoServ($descricao) {
+    $connection;
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idtipo, idservico, descricao FROM tiposervico WHERE descricao LIKE '%{$descricao}%'";
+        $preparedStatment = $connection->prepare($sql);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+//******************************************************************************************************
+
+// # # # # # PARA BUSCAR OS SERVIÇO POR CÓDIGO # # # # # //
+//idserv, descricao
+function BuscaRegTipoServ($idserv) {
+    $connection;
+    try {
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $sql = "SELECT idserv, descricao FROM servico WHERE idserv = :idserv";
+        $preparedStatment = $connection->prepare($sql);
+        $preparedStatment->bindParam(":idclie", $idclie);
+
+        if ($preparedStatment->execute() == TRUE) {
+            return $preparedStatment->fetchAll();
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
 }

@@ -67,6 +67,7 @@ function BuscarCliente($nome) {
     }
 }
 
+
 // # # # # # PARA BUSCAR OS DADOS POR CÓDIGO NA TABELA CLIENTES # # # # # //
 //idclie $nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto
 function BuscaRegCliente($idclie) {
@@ -130,5 +131,33 @@ function AlterarCliente($idclie, $nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF
 			unset($connection);
 		}
 	}
+}
+
+
+// # # # # FUNÇÃO PARA EXCLUIR CADASTRO DE CLIENTE # # # # # //
+function ApagarCliente($idClie) {
+    $connection;
+
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+		$sql = "DELETE FROM cliente WHERE idclie = $idClie";
+        $preparedStatment = $connection->prepare($sql);
+		
+		
+        if ($preparedStatment->execute() == TRUE) {
+			return TRUE;
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
 }
 

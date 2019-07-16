@@ -1,44 +1,48 @@
-<!--<?php
-	include_once "../cabecalho.php";
-?>
--->
-		<form action = "" name = "cadTipoServico" method ="POST">
-			<fieldset>
-				<legend>CADASTRAR TIPOS DE SERVIÇOS </legend><br>
-					<table border='0'>
-						<tr>
-							<th align=left>Serviço:</th><td> <input type="text" name="idservico" id="idservico" required></td>
-						</tr>
-						<tr>
-							<th align=left>Descrição:</th><td> <input type="text" name="descricao" id="descricao" required></td>
-						</tr>
-						<tr>			
-							<th colspan="2" ><input type="submit" Value="Cadastrar">
-											<input type="submit" Value="Editar">
-											<input type="submit" Value="Excluir">
-											</th> 
-						</tr>
-					</table>
-			</fieldset>
-		</form>	
-	</body>
-</html>
-
 <?php
+	include_once "../cabecalho.php";
+	include_once "../banner.php";
+	
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );
+
+	$con=mysqli_connect("localhost","root","","agenda");
+	
+	//$sql = "SELECT servico.descricao, servico.idserv FROM servico, tiposervico WHERE tiposervico.idservico=1";
+	$sql = "SELECT * FROM servico";
+	$result = mysqli_query($con, $sql);
+
+
+?>
+	<!-- CSS DE ESTILO-->
+	<link href="../css/estilo.css" rel="stylesheet">	
+
+	<form action = "" name = "cadTipoServico" method ="POST">
+		<legend><b>CADASTRO TIPO DE SERVIÇO</b></legend><br>
+		Tipo:<input type="number" name = "idservico" id = "idservico" required><br><br>
+		Descrição:<input type="text" name = "descricao" id = "descricao" required><br><br>
+		<input type="submit" Value="Cadastrar">
+	</form>	
+	
+	<?php
 include_once '../class/ClassConexaoServ.php';
 
-// PARA CADASTRAR SERVIÇOS
+// PARA CADASTRAR NOVO TIPO DE SERVIÇO
 if (isset($_POST['idservico']) && isset($_POST['descricao'])) {
 	$idservico = $_POST['idservico'];
 	$descricao = $_POST['descricao'];
         
-	//CHAMADA DO MÉTODO CadastroTipoServ 
+	//CHAMADA DO MÉTODO CADASTRA SERVIÇO
     $resultado = CadastroTipoServ($idservico, $descricao);
-    if ($resultado == TRUE) {
-		echo header('Location: cadTipoServico.php');
+	if ($resultado == TRUE) {
+		header('location: cadTipoServico.php');
     } else {
-        echo "Serviço cadastrado.";
+        echo "Cadastrado realizado.";
     }
 }
+?>
 
+
+<?php
+	include_once "../publicidade.php";
+	include_once "../rodape.php";
 ?>

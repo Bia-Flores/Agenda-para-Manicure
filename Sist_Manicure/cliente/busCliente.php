@@ -1,4 +1,10 @@
 <?php
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );
+
+	session_start();
+	//include_once "../admin/login.php";
+
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 ?>
@@ -22,7 +28,7 @@
 		$nome = $_POST['nome'];
 		
         $ObjCliente = BuscarCliente($nome);
-        echo " <table border='1'>
+        echo " <div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
                    <tr>
                     <th>Código</th>
                      <th>Nome</th>
@@ -35,7 +41,7 @@
 					 <th>Telefone</th>
 					 <th>Celular</th>
 					 <th>E-mail</th>
-					 <th>Senha</th>
+					 
 					 <th>Foto</th>
                    </tr>";
 				   
@@ -52,13 +58,15 @@
 			echo'<td>' . $cliente['telefone'] . '</td>';
 			echo'<td>' . $cliente['celular'] . '</td>';
 			echo'<td>' . $cliente['email'] . '</td>';
-			echo'<td>' . $cliente['senha'] . '</td>';
+			/*echo'<td>' . $cliente['senha'] . '</td>';*/
 			echo'<td>' . $cliente['foto'] . '</td>';
 			echo'</tr>';
 			echo'<tr>';
-            echo'<td align=center colspan = 13 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar Cadastro</a></td>';
+            echo'<td align=center colspan = 6 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar Cadastro</a></td>';
+			echo'<td align=center colspan = 7 ><a href=excCliente.php?idclie=' . $cliente['idclie'] . '>Excluir Cadastro</a></td>';
             echo'</tr>';
         }
+		echo "	</div>";
     }
 ?>
 

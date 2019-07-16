@@ -1,40 +1,41 @@
-<!--<?php
-	include_once "../cabecalho.php";
-?>
--->
-		<form action = "" name = "cadServico" method ="POST">
-			<fieldset>
-				<legend>CADASTRAR SERVIÇOS </legend><br>
-					<table border='0'>
-						<tr>
-							<th align=left>Descrição:</th><td> <input type="text" name="descricao" id="descricao" required></td>
-						</tr>
-						<tr>			
-							<th colspan="2" ><input type="submit" Value="Cadastrar">
-											<input type="submit" Value="Editar">
-											<input type="submit" Value="Excluir">
-											</th> 
-						</tr>
-					</table>
-			</fieldset>
-		</form>	
-	</body>
-</html>
-
 <?php
+	include_once "../cabecalho.php";
+	include_once "../banner.php";
+	
+	error_reporting(0);
+	ini_set(“display_errors”, 0 );
+
+
+?>
+	<!-- CSS DE ESTILO-->
+	<link href="../css/estilo.css" rel="stylesheet">	
+
+	<form action = "" name = "cadServico" method ="POST">
+		<legend><b>CADASTRO DE SERVIÇO</b></legend><br>
+		Descrição: <input type="text" name = "descricao" id = "descricao" required><br><br>
+		<input type="submit" Value="Cadastrar">
+	</form>	
+
+	
+	<?php
 include_once '../class/ClassConexaoServ.php';
 
-// PARA CADASTRAR SERVIÇOS
+// PARA CADASTRAR NOVO SERVIÇO
 if (isset($_POST['descricao'])) {
 	$descricao = $_POST['descricao'];
         
-	//CHAMADA DO MÉTODO CadastraServ 
+	//CHAMADA DO MÉTODO CADASTRA SERVIÇO
     $resultado = CadastraServ($descricao);
-    if ($resultado == TRUE) {
-		echo header('Location: cadServico.php');
+	if ($resultado == TRUE) {
+		header('location: cadCliente.php');
     } else {
-        echo "Serviço cadastrado.";
+        echo "Cadastrado realizado.";
     }
 }
+?>
 
+
+<?php
+	include_once "../publicidade.php";
+	include_once "../rodape.php";
 ?>

@@ -1,5 +1,5 @@
 <?php
-	include_once "../cabecalho.php";
+	include_once "../cabecalho_index.php";
 	include_once "../banner.php";
 	
 

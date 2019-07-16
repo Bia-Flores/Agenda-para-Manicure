@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Jul-2019 às 23:26
+-- Generation Time: 16-Jul-2019 às 02:40
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -45,7 +45,7 @@ CREATE TABLE `administrador` (
 
 INSERT INTO `administrador` (`idadmim`, `nome`, `CPF`, `telefone`, `celular`, `email`, `senha`, `foto`) VALUES
 (1, 'Beatriz Gabriel Flores', '111.222.333-44', '5532421966', '55 991010203', 'byaflores@gmail.com', '12345', 'abc'),
-(2, 'Junior Gabriel', '171.222.341-98', '55 3242-0000', '55 992325432', 'junior@gmail.com', '12345', ''),
+(2, 'Junior Gabriel Flores', '171.222.341-98', '55 3242-0000', '55 992325432', 'junior@gmail.com', '12345', ''),
 (3, 'Lucelita Luluzinha', '000.999.876-12', '55 3241 2525', '55 999992401', 'lulu@gmail.com', '12345', '');
 
 -- --------------------------------------------------------
@@ -76,7 +76,16 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`idclie`, `nome`, `CPF`, `RG`, `CEP`, `endereco`, `cidade`, `UF`, `telefone`, `celular`, `email`, `senha`, `foto`) VALUES
 (1, 'Carla Ribeiro', '014.025.036-00', '0001144778', '97584-222', 'Rua Sorria', 'Santana', 'RS', '5532421966', '99999-3456', 'carla@gmail.com', '12345', 'asdf'),
-(2, 'Aninha Abc', '014.025.036.00', '0147852036', '97584-321', 'Rua Sorria', 'Santana', 'RS', '5532421966', '99999-3456', 'aninha@gmail.com', '12345', 'asdf');
+(2, 'Aninha Agora esta correto', '014.025.036.00', '0147852036', '97584-321', 'Rua Sorria', 'Santana', 'RS', '5532421966', '99999-3456', 'aninha@gmail.com', '12345', 'asdf'),
+(3, 'Maria de FÃ¡tima Rodrigues', '333.444.222-11', '0987667890', '97570-220', 'Rua Maria', 'Santana do Livramento', 'RS', '5532421966', '55 991010203', 'maria@maria.com', '12345', ''),
+(5, 'Musquita Musquiteira', '000.000.999-99', '0000000009', '97543-222', 'Rua das Flores', 'Santana do Livramento', 'RS', '5532421966', '55 991010203', 'musquita@gmail.com', '12345', ''),
+(7, 'Aaaaa Baaaaa', '098.098.098-98', '8989898989', '97654-220', 'Rua Alcantara', 'SANTANA DO LIVRAMENTO', 'RS', '5532421966', '55 991010203', 'abcd@gmail.com', '12345', ''),
+(8, 'Debora Segui', '222.222.222-44', '1212121212', '97564-009', 'Rua Dom Pedro, 23', 'SANTANA DO LIVRAMENTO', 'RS', '5532421966', '55 999992401', 'debora@gmail.com', '1345', ''),
+(10, 'Lucelia', '121.232.343-55', '7865432567', '96010-760', 'Avenida Amazonas,800', 'Pelotas', 'RS', '984697549', '985697549', 'lucelia.vieiraa@hotmail.com', '123456', 'ty.jpg'),
+(12, 'Lucia Marinho', '9078654345', '9876543215', '96010-760', 'Avenida Amazonas,800', 'Pelotas', 'RS', '984697549', '984697549', 'lucelia.vieiraa@hotmail.com', '876543', 'RS'),
+(15, 'Beatriz Gabriel Flores', '111.111.111-13', '0000000009', '97574-224', 'RUA ALMIRANTE BARROSO', 'SANTANA DO LIVRAMENTO', 'RS', '984697549', '984697549', 'byaflores@gmail.com', '12345', 'er.jpg'),
+(17, 'Bia Flores Belas', '528.987.987.09', '0000000090', '97574-224', 'RUA ALMIRANTE BARROSO', 'SANTANA DO LIVRAMENTO', 'RS', '984697549', '984697549', 'byaflores@gmail.com', '12345', 'abc.jpg'),
+(18, 'Beatriz Permanece Correto', '111.222.333-90', '1122334459', '97574-224', 'RUA ALMIRANTE BARROSO', 'SANTANA DO LIVRAMENTO', 'RS', '55 3242-0000', '55999992321', 'byaflores@gmail.com', '1234', 'kop.jpg');
 
 -- --------------------------------------------------------
 
@@ -144,7 +153,9 @@ CREATE TABLE `prestador` (
 --
 
 INSERT INTO `prestador` (`idprest`, `nome`, `CPF`, `RG`, `CEP`, `endereco`, `cidade`, `UF`, `telefone`, `celular`, `email`, `senha`, `foto`, `idservico`) VALUES
-(1, 'Gabriel Flores', '770.297.980-15', '1122334455', '97574-224', 'RUA ALMIRANTE BARROSO', 'SANTANA DO LIVRAMENTO', 'RS', '5532421966', '99999-3456', 'byaflores@gmail.com', '12345', 'abc', 1);
+(1, 'Gabriel Flores', '770.297.980-15', '1122334455', '97574-224', 'RUA ALMIRANTE BARROSO', 'SANTANA DO LIVRAMENTO', 'RS', '5532421966', '99999-3456', 'byaflores@gmail.com', '12345', 'abc', 1),
+(2, 'Angela Maria Freitas', '159.951.999-88', '1597536541', '97587-254', 'Rua Belizario Freitas, 100', 'Santana do Livramento', 'RS', '5532421966', '55999992321', 'angela@gmail.com', '12345', '', 1),
+(3, 'Claudia Alves', '258.852.258-88', '1477411477', '97578-225', 'Rua Bragantino, 200', 'Santana do Livramento', 'RS', '5532421966', '55 991010203', 'claudia@gmail.com', '12345', '', 1);
 
 -- --------------------------------------------------------
 
@@ -162,7 +173,9 @@ CREATE TABLE `servico` (
 --
 
 INSERT INTO `servico` (`idserv`, `descricao`) VALUES
-(1, 'Manicure');
+(1, 'Manicure'),
+(2, 'Pedicure'),
+(8, 'PÃ©s limpo');
 
 -- --------------------------------------------------------
 
@@ -181,7 +194,10 @@ CREATE TABLE `tiposervico` (
 --
 
 INSERT INTO `tiposervico` (`idtipo`, `idservico`, `descricao`) VALUES
-(1, 1, 'Manicure Francesinha - Esmalte Importado');
+(1, 1, 'Manicure Francesinha - Esmalte Importado'),
+(3, 1, 'Aplicacao Unhas Posticas'),
+(4, 2, 'Francesinha no pé'),
+(5, 2, 'Pedicure Francesinha - Esmalte Importado');
 
 --
 -- Indexes for dumped tables
@@ -252,13 +268,13 @@ ALTER TABLE `tiposervico`
 -- AUTO_INCREMENT for table `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `idadmim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idadmim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idclie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idclie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `listaserv`
@@ -276,19 +292,19 @@ ALTER TABLE `ordem`
 -- AUTO_INCREMENT for table `prestador`
 --
 ALTER TABLE `prestador`
-  MODIFY `idprest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idprest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `idserv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idserv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tiposervico`
 --
 ALTER TABLE `tiposervico`
-  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

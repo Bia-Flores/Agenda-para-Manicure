@@ -33,7 +33,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 mx-auto">
-						<span> Logar </span>
+						<span><a href="../admin/login.php">Logar </span>
 						<span><a href="../admin/logout.php">Sair</span>
 					</div>
 				</div>
@@ -49,8 +49,8 @@
 				<ul>
 					<li><p style="margin:0">Admin</p>
 						<ul>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger"  href="../admin/busAdmin.php">Buscar/Editar</a></li>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger"  href="../admin/busAdmin.php">Buscar/Editar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Cadastrar</a></li>
 						</ul>
 					</li>
 					<li>
@@ -58,18 +58,21 @@
 					</li>
 					<li><p style="margin:0">Cliente</p>
 						<ul>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
 						</ul>
 					</li>
 					<li><p style="margin:0">Prestador</p>
 						<ul>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="#prestador">Buscar/Editar</a></li>
-							<li style= "width: 83px" ><a class="nav-link js-scroll-trigger" href="#prestador">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../prestador/busPrestador.php">Buscar/Editar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../prestador/cadPrestador.php">Cadastrar</a></li>
 						</ul>
 					</li>
-					<li>
-						<a class="nav-link js-scroll-trigger" href="#servico">Serviços</a>
+					<li><p style="margin:0">Serviços</p>
+						<ul>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/cadServico.php">Cad. Serviço</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/cadTipoServico.php">Cad. Tipo</a></li>
+						</ul>
 					</li>
 				</ul>
 			</nav>

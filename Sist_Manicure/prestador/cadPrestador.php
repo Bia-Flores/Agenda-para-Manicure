@@ -62,9 +62,9 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG']) && isse
 	//CHAMADA DO MÉTODO CadastraPrest 
     $resultado = CadastraPrest($nome, $CPF, $RG, $CEP, $endereco, $cidade, $UF, $telefone, $celular, $email, $senha, $foto, $idservico);
     if ($resultado == TRUE) {
-		echo header('Location: cadPrestador.php');
+		/*echo header('Location: cadPrestador.php');
     } else {
-        echo "Profissional cadastrado.";
+        echo "Profissional cadastrado.";*/
     }
 }
 ?>

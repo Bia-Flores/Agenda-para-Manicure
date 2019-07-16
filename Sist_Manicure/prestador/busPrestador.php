@@ -17,12 +17,12 @@
 
 <?php
     if (isset($_POST['nome'])) {
-        include_once '../class/ClassConexaoClassConexaoPrest.php';
+        include_once '../class/ClassConexaoPrest.php';
         
 		$nome = $_POST['nome'];
 		
         $ObjPrest = BuscarPrest($nome);
-        echo " <table border='1'>
+        echo " <div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
                    <tr>
                     <th>Código</th>
                      <th>Nome</th>
@@ -35,7 +35,7 @@
 					 <th>Telefone</th>
 					 <th>Celular</th>
 					 <th>E-mail</th>
-					 <th>Senha</th>
+					 
 					 <th>Foto</th>
 					 <th>Serviço</th>
                    </tr>";
@@ -53,14 +53,16 @@
 			echo'<td>' . $prestador['telefone'] . '</td>';
 			echo'<td>' . $prestador['celular'] . '</td>';
 			echo'<td>' . $prestador['email'] . '</td>';
-			echo'<td>' . $prestador['senha'] . '</td>';
+			/*echo'<td>' . $prestador['senha'] . '</td>';*/
 			echo'<td>' . $prestador['foto'] . '</td>';
 			echo'<td>' . $prestador['idservico'] . '</td>';
 			echo'</tr>';
 			echo'<tr>';
-            echo'<td align=center colspan = 13 ><a href=editPrest.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
+            echo'<td align=center colspan = 6 ><a href=editPrestador.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
+			echo'<td align=center colspan = 7 ><a href=excPrestador.php?idprest=' . $prestador['idprest'] . '>Excluir Cadastro</a></td>';
             echo'</tr>';
         }
+		echo "	</div>";
     }
 ?>
 

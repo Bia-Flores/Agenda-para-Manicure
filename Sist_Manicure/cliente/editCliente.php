@@ -1,4 +1,5 @@
 <?php
+
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 ?>
