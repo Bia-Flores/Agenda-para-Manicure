@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	include_once "../admin/login_Ok.php";
+	
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 ?>

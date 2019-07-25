@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -49,8 +48,8 @@
 				<ul>
 					<li><p style="margin:0">Admin</p>
 						<ul>
-							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger"  href="../admin/busAdmin.php">Buscar/Editar</a></li>
 							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../admin/cadAdmin.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger"  href="../admin/busAdmin.php">Buscar/Editar</a></li>
 						</ul>
 					</li>
 					<li>
@@ -58,20 +57,20 @@
 					</li>
 					<li><p style="margin:0">Cliente</p>
 						<ul>
-							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
 							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../cliente/cadCliente.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../cliente/busCliente.php">Buscar/Editar</a></li>
 						</ul>
 					</li>
 					<li><p style="margin:0">Prestador</p>
 						<ul>
-							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../prestador/busPrestador.php">Buscar/Editar</a></li>
 							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../prestador/cadPrestador.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../prestador/busPrestador.php">Buscar/Editar</a></li>
 						</ul>
 					</li>
 					<li><p style="margin:0">Serviços</p>
 						<ul>
-							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/cadServico.php">Cad. Serviço</a></li>
-							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/cadTipoServico.php">Cad. Tipo</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/cadServicos.php">Cadastrar</a></li>
+							<li style= "width: 144px" ><a class="nav-link js-scroll-trigger" href="../servico/menu.php">Buscar/Editar</a></li>
 						</ul>
 					</li>
 				</ul>

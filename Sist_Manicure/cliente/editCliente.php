@@ -43,7 +43,7 @@
 ?>
 
 	<form action="" name="cliente" method="post">
-		<legend><b> ATUALIZAR CADASTRO </legend>
+		<legend><b> ATUALIZAR CADASTRO DE CLIENTES</legend>
 		<table border='0' >
 			<tr>
 				<th align=left>Código:</th><td> <input type="label" name="idclie" id="idclie" value="<?php echo $Cod_Cliente?>" required></td>

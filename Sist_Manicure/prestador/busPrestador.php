@@ -24,7 +24,7 @@
         $ObjPrest = BuscarPrest($nome);
         echo " <div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
                    <tr>
-                    <th>Código</th>
+          
                      <th>Nome</th>
 					 <th>CPF</th>
 					 <th>RG</th>
@@ -42,7 +42,7 @@
 				   
         foreach ($ObjPrest as $prestador) {
             echo'<tr align=center>';
-            echo'<td>' . $prestador['idprest'] . '</td>';
+            //echo'<td>' . $prestador['idprest'] . '</td>';
 			echo'<td>' . $prestador['nome'] . '</td>';
 			echo'<td>' . $prestador['CPF'] . '</td>';
 			echo'<td>' . $prestador['RG'] . '</td>';
@@ -58,7 +58,7 @@
 			echo'<td>' . $prestador['idservico'] . '</td>';
 			echo'</tr>';
 			echo'<tr>';
-            echo'<td align=center colspan = 6 ><a href=editPrestador.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
+            echo'<td align=center colspan = 5 ><a href=editPrestador.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
 			echo'<td align=center colspan = 7 ><a href=excPrestador.php?idprest=' . $prestador['idprest'] . '>Excluir Cadastro</a></td>';
             echo'</tr>';
         }

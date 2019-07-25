@@ -2,14 +2,14 @@
 	include_once "../cabecalho.php";
 	include_once "../banner.php";
 	
-	error_reporting(0);
-	ini_set(“display_errors”, 0 );
+	//error_reporting(0);
+	//ini_set(“display_errors”, 0 );
 
-	$con=mysqli_connect("localhost","root","","agenda");
+	//$con=mysqli_connect("localhost","root","","agenda");
 	
 	//$sql = "SELECT servico.descricao, servico.idserv FROM servico, tiposervico WHERE tiposervico.idservico=1";
-	$sql = "SELECT * FROM servico";
-	$result = mysqli_query($con, $sql);
+	//$sql = "SELECT * FROM servico";
+	//$result = mysqli_query($con, $sql);
 
 
 ?>
@@ -34,9 +34,9 @@ if (isset($_POST['idservico']) && isset($_POST['descricao'])) {
 	//CHAMADA DO MÉTODO CADASTRA SERVIÇO
     $resultado = CadastroTipoServ($idservico, $descricao);
 	if ($resultado == TRUE) {
-		header('location: cadTipoServico.php');
+		//echo "Cadastrado realizado.";
     } else {
-        echo "Cadastrado realizado.";
+        header('location: cadTipoServico.php');
     }
 }
 ?>

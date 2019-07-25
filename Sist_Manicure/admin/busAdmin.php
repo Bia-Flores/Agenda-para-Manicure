@@ -28,19 +28,19 @@
 				$ObjAdmin = BuscarAdmin($nome);
 				echo "<div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
 						   <tr>
-							<th>Código</th>
-							 <th>Nome</th>
-							 <th>CPF</th>
-							 <th>Telefone</th>
-							 <th>Celular</th>
-							 <th>E-mail</th>
 							
-							 <th>Foto</th>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Telefone</th>
+							<th>Celular</th>
+							<th>E-mail</th>
+							
+							<th>Foto</th>
 						   </tr>";
 						   
 				foreach ($ObjAdmin as $administrador) {
 					echo'<tr align=center>';
-					echo'<td>' . $administrador['idadmim'] . '</td>';
+					//echo'<td>' . $administrador['idadmim'] . '</td>';
 					echo'<td>' . $administrador['nome'] . '</td>';
 					echo'<td>' . $administrador['CPF'] . '</td>';
 					echo'<td>' . $administrador['telefone'] . '</td>';
@@ -50,8 +50,8 @@
 					echo'<td>' . $administrador['foto'] . '</td>';
 					echo'</tr>';
 					echo'<tr>';
-					echo'<td align=center colspan = 4 ><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
-					echo'<td align=center colspan = 4 ><a href=excAdmin.php?idadmim=' . $administrador['idadmim'] . '>Excluir Cadastro</a></td>';
+					echo'<td align=center colspan = 3 ><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
+					echo'<td align=center colspan = 3 ><a href=excAdmin.php?idadmim=' . $administrador['idadmim'] . '>Excluir Cadastro</a></td>';
 					echo'</tr>';
 				}
 				echo "	</div>";

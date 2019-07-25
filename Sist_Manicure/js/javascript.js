@@ -6,7 +6,7 @@ $(document).ready(function(){
 });
 
 $('#table-milagre').ready(function(){
-	console.log("olar");
+	//console.log("olar");
 	$('#publicidade').css('margin-top',100);	
 });
 

@@ -2,14 +2,14 @@
 // # # # # # # CLASSE CONEXÃO COM O BANCO DE DADOS "AGENDA" # # # # # # //
 // # # # # # # # # TABELA SERVIÇOS # # # # # # # # //
 // # # # # # # PARA CADASTRAR SERVIÇOS # # # # # # //
-function CadastraServ($descricao){
+function CadastraServ($NomeDesc){
 	$connection;
 	try{
 		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
 		$connection->beginTransaction();
-		$sql = "INSERT INTO servico (descricao) VALUES (:descricao)";
+		$sql = "INSERT INTO servico (NomeDesc) VALUES (:NomeDesc)";
 		$preparedStatment = $connection->prepare($sql);
-		$preparedStatment->bindParam(":descricao", $descricao);
+		$preparedStatment->bindParam(":NomeDesc", $NomeDesc);
 		$executionResult = $preparedStatment->execute();
 		$connection->commit();
 		
@@ -34,11 +34,11 @@ function CadastraServ($descricao){
 
 
 // # # # # # # PARA LISTAR SERVIÇO # # # # # # //
-function BuscarServico($descricao) {
+function BusServico($NomeDesc) {
     $connection;
     try {
    		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-        $sql = "SELECT idserv, descricao FROM servico WHERE descricao LIKE '%{$descricao}%'";
+        $sql = "SELECT idserv, NomeDesc FROM servico WHERE NomeDesc LIKE '%{$NomeDesc}%'";
         $preparedStatment = $connection->prepare($sql);
 
         if ($preparedStatment->execute() == TRUE) {
@@ -60,14 +60,13 @@ function BuscarServico($descricao) {
 
 
 // # # # # # PARA BUSCAR OS SERVIÇO POR CÓDIGO # # # # # //
-//idserv, descricao
-function BuscaRegServico($idserv) {
+function BusRegServ($idserv) {
     $connection;
     try {
         $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-        $sql = "SELECT idserv, descricao FROM servico WHERE idserv = :idserv";
+        $sql = "SELECT idserv, NomeDesc FROM servico WHERE idserv = :idserv";
         $preparedStatment = $connection->prepare($sql);
-        $preparedStatment->bindParam(":idclie", $idclie);
+        $preparedStatment->bindParam(":idserv", $idserv);
 
         if ($preparedStatment->execute() == TRUE) {
             return $preparedStatment->fetchAll();
@@ -87,18 +86,76 @@ function BuscaRegServico($idserv) {
 }
 
 
+// # # # # # FUNÇÃO PARA EDITAR TIPOS DE SERVIÇOS # # # # # //
+function AltServico($idserv, $NomeDesc) {
+    $connection;
+    try {
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $connection->beginTransaction();
+        $sql = "UPDATE servico SET NomeDesc = :NomeDesc WHERE idserv = :idserv";
+		$preparedStatment = $connection->prepare($sql);
+        $preparedStatment->bindParam(":idserv", $idserv);
+        $preparedStatment->bindParam(":NomeDesc", $NomeDesc);
+		$preparedStatment->execute();
+        $executionResult = $preparedStatment->execute();
+        $connection->commit();
 
-// # # # # # # # # TABELA TIPOS DE SERVIÇOS # # # # # # # # //
+		//var_dump ($sql);
+		
+	} catch (PDOException $exc) {
+		if ((isset($connection)) && ($connection->inTransaction())) {
+			$connection->rollBack();
+		}
+		print $exc->getMessage();
+	} finally {
+		if (isset($connection)) {
+			unset($connection);
+		}
+	}
+}
+
+// # # # # FUNÇÃO PARA APAGAR # # # # # //
+function ApagarServ($idserv) {
+    $connection;
+
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+		$sql = "DELETE FROM servico WHERE idserv = $idserv";
+        $preparedStatment = $connection->prepare($sql);
+				
+        if ($preparedStatment->execute() == TRUE) {
+            //return $preparedStatment->fetchAll();
+			return TRUE;
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+
+/* # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+* * * * * * * * * * * TABELA TIPOS DE SERVIÇOS * * * * * * * * * *
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # */
+
+
 // # # # # # # PARA CADASTRAR TIPOS DE SERVIÇOS # # # # # # //
-function CadastroTipoServ($idtipo, $idservico, $descricao){
+function CadastroTipoServ($idservico, $descrTipo){
 	$connection;
 	try{
 		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
 		$connection->beginTransaction();
-		$sql = "INSERT INTO tipoServico (idservico, descricao) VALUES (:idservico, :descricao)";
+		$sql = "INSERT INTO tiposervico (idservico, descrTipo) VALUES (:idservico, :descrTipo)";
 		$preparedStatment = $connection->prepare($sql);
 		$preparedStatment->bindParam(":idservico", $idservico);
-		$preparedStatment->bindParam(":descricao", $descricao);
+		$preparedStatment->bindParam(":descrTipo", $descrTipo);
 		$executionResult = $preparedStatment->execute();
 		$connection->commit();
 		
@@ -123,11 +180,11 @@ function CadastroTipoServ($idtipo, $idservico, $descricao){
 
 
 // # # # # # # PARA LISTAR TIPO DE SERVIÇO # # # # # # //
-function BuscarTipoServ($descricao) {
+function BusTipoServ($descrTipo) {
     $connection;
     try {
    		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-        $sql = "SELECT idtipo, idservico, descricao FROM tiposervico WHERE descricao LIKE '%{$descricao}%'";
+        $sql = "SELECT idtipo, idservico, descrTipo FROM tiposervico WHERE descrTipo LIKE '%{$descrTipo}%'";
         $preparedStatment = $connection->prepare($sql);
 
         if ($preparedStatment->execute() == TRUE) {
@@ -147,17 +204,14 @@ function BuscarTipoServ($descricao) {
     }
 }
 
-//******************************************************************************************************
-
 // # # # # # PARA BUSCAR OS SERVIÇO POR CÓDIGO # # # # # //
-//idserv, descricao
-function BuscaRegTipoServ($idserv) {
+function BusRegTipoServ($idtipo) {
     $connection;
     try {
         $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-        $sql = "SELECT idserv, descricao FROM servico WHERE idserv = :idserv";
+        $sql = "SELECT idtipo, idservico, descrTipo FROM tiposervico WHERE idtipo = :idtipo";
         $preparedStatment = $connection->prepare($sql);
-        $preparedStatment->bindParam(":idclie", $idclie);
+        $preparedStatment->bindParam(":idtipo", $idtipo);
 
         if ($preparedStatment->execute() == TRUE) {
             return $preparedStatment->fetchAll();
@@ -175,3 +229,64 @@ function BuscaRegTipoServ($idserv) {
         }
     }
 }
+
+
+// # # # # # FUNÇÃO PARA EDITAR TIPOS DE SERVIÇOS # # # # # //
+function AltTipServ($idtipo, $idservico, $descrTipo) {
+    $connection;
+    try {
+        $connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+        $connection->beginTransaction();
+        $sql = "UPDATE tiposervico SET idservico = :idservico, descrTipo = :descrTipo WHERE idtipo = :idtipo";
+		$preparedStatment = $connection->prepare($sql);
+        $preparedStatment->bindParam(":idtipo", $idtipo);
+        $preparedStatment->bindParam(":idservico", $idservico);
+        $preparedStatment->bindParam(":descrTipo", $descrTipo);
+		$preparedStatment->execute();
+        $executionResult = $preparedStatment->execute();
+        $connection->commit();
+
+		//var_dump ($sql);
+		
+	} catch (PDOException $exc) {
+		if ((isset($connection)) && ($connection->inTransaction())) {
+			$connection->rollBack();
+		}
+		print $exc->getMessage();
+	} finally {
+		if (isset($connection)) {
+			unset($connection);
+		}
+	}
+}
+
+
+// # # # # FUNÇÃO PARA APAGAR # # # # # //
+function ApagarTipoServ($idtipo) {
+    $connection;
+
+    try {
+   		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
+		$sql = "DELETE FROM tiposervico WHERE idtipo = $idtipo";
+        $preparedStatment = $connection->prepare($sql);
+		//$preparedStatment->bindParam(":idadmim", $idadmim);
+		
+		
+        if ($preparedStatment->execute() == TRUE) {
+            //return $preparedStatment->fetchAll();
+			return TRUE;
+        } else {
+            return array();
+        }
+    } catch (PDOException $exc) {
+        if ((isset($connection)) && ($connection->inTransaction())) {
+            $connection->rollBack();
+        }
+        return array();
+    } finally {
+        if (isset($connection)) {
+            unset($connection);
+        }
+    }
+}
+

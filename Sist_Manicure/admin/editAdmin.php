@@ -41,7 +41,7 @@
 				<legend><b>EDITAR CADASTRO DE ADMINISTRADOR</b></legend><br>
 					<table border='0' >
 						<tr> 
-							<th align=left>Código:</th><td> <input type="label" name="idadmim" id="idadmim" value="<?php echo $Cod_Admin?>" required ></td>
+							<th align=left>Código:</th><td> <input type="text" name="idadmim" id="idadmim" value="<?php echo $Cod_Admin?>" required ></td>
 						</tr>
 						<tr>
 							<th align=left>Nome:</th><td> <input type="text" name="nome" id="nome" value="<?php echo $Nome_Admin?>" required ></td>
@@ -81,6 +81,7 @@ if(isset($_POST['idadmim'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& iss
 	$Email_Admin=$_POST['email'];
 	$Senha_Admin=$_POST['senha'];
 	$Foto_Admin=$_POST['foto'];
+	
 	
 	//idadmim, nome, CPF, telefone, celular, email, senha, foto
 	$resultado=AlterarAdmin($Cod_Admin, $Nome_Admin, $CPF_Admin, $Fone_Admin, $Celular_Admin, $Email_Admin, $Senha_Admin, $Foto_Admin);

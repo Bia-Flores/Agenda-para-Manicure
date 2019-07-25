@@ -30,7 +30,7 @@
         $ObjCliente = BuscarCliente($nome);
         echo " <div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
                    <tr>
-                    <th>Código</th>
+                   
                      <th>Nome</th>
 					 <th>CPF</th>
 					 <th>RG</th>
@@ -47,7 +47,7 @@
 				   
         foreach ($ObjCliente as $cliente) {
             echo'<tr align=center>';
-            echo'<td>' . $cliente['idclie'] . '</td>';
+            //echo'<td>' . $cliente['idclie'] . '</td>';
 			echo'<td>' . $cliente['nome'] . '</td>';
 			echo'<td>' . $cliente['CPF'] . '</td>';
 			echo'<td>' . $cliente['RG'] . '</td>';
@@ -62,8 +62,8 @@
 			echo'<td>' . $cliente['foto'] . '</td>';
 			echo'</tr>';
 			echo'<tr>';
-            echo'<td align=center colspan = 6 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar Cadastro</a></td>';
-			echo'<td align=center colspan = 7 ><a href=excCliente.php?idclie=' . $cliente['idclie'] . '>Excluir Cadastro</a></td>';
+            echo'<td align=center colspan = 5 ><a href=editCliente.php?idclie=' . $cliente['idclie'] . '>Atualizar Cadastro</a></td>';
+			echo'<td align=center colspan = 6 ><a href=excCliente.php?idclie=' . $cliente['idclie'] . '>Excluir Cadastro</a></td>';
             echo'</tr>';
         }
 		echo "	</div>";

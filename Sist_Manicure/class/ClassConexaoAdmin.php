@@ -126,14 +126,17 @@ function AlterarAdmin($idadmim, $nome, $CPF, $telefone, $celular, $email, $senha
 
 // # # # # FUNÇÃO PARA LOGAR ADMINISTRADOR # # # # # //
 function LogAdmin($CPF, $senha) {
+	$senha_cod = md5($senha); /*variavel comparação*/
     $connection;
     try {
    		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
-		$sql = "SELECT CPF, senha FROM administrador WHERE CPF = :CPF AND senha = :senha";
+		//$sql = "SELECT CPF, senha FROM administrador WHERE CPF = :CPF AND senha = :senha";
+		$sql = "SELECT CPF, senha FROM administrador WHERE CPF = :CPF AND senha = :senha_cod";
         $preparedStatment = $connection->prepare($sql);
 		$preparedStatment->bindParam(":CPF", $CPF);
-		$preparedStatment->bindParam(":senha", $senha);
-
+		//$preparedStatment->bindParam(":senha", $senha);
+		$preparedStatment->bindParam(":senha_cod", $senha_cod);
+		
         if ($preparedStatment->execute() == TRUE) {
             return $preparedStatment->fetchAll();
         } else {

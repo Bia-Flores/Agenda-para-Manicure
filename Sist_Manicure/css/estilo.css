@@ -146,3 +146,76 @@ footer p{
 	width: 50%;/*largura*/
 	height: 200px; 
 }
+
+#busServico{
+	background-color: #f3f3f3ff;
+	float:left;/*define que o elemento deve flutuar à esquerda*/
+	width: 50%;/*largura*/
+	text-align: center;
+	height: 200px; 
+}
+
+#busServico, #busTipoServ legend{
+	font-weight: bold;/*texto negrito*/
+}
+	
+#busTipoServ{
+	text-align: center;
+	background-color: #f3f3f3ff;
+	float:right; /*define que o elemento deve flutuar à direita*/
+	width: 50%;/*largura*/
+	height: 200px; 
+}
+
+#editServico, #editTipoServ legend{
+	font-weight: bold;/*texto negrito*/
+}
+
+#editServico{
+	background-color: #f3f3f3ff;
+	/*float:left;/*define que o elemento deve flutuar à esquerda
+	width: 50%;/*largura*/
+	height: 200px; 
+	margin-right:10px;
+}
+
+#editTipoServ{
+	background-color: #f3f3f3ff;
+	/*float:right; /*define que o elemento deve flutuar à direita
+	width: 50%;/*largura*/
+	height: 200px; 
+
+}
+
+#menuServico{
+	background-color: #f3f3f3ff;
+	float:left;/*define que o elemento deve flutuar à esquerda*/
+	width: 50%;/*largura*/
+	text-align: center;
+	height: 200px; 
+}
+
+#menuTipoServ{
+	text-align: center;
+	background-color: #f3f3f3ff;
+	float:right; /*define que o elemento deve flutuar à direita*/
+	width: 50%;/*largura*/
+	height: 200px; 
+}
+
+#menu_serv button{
+	font-weight: bold;/*texto negrito*/
+	background-color:button;/*cor de fundo do buttom*/
+	color: #a8adad;/*cor do texto*/
+	border: solid;/*buttom sem borda*/
+	padding: 10px 27px;
+	display: inline-block;
+	font-size: 18px;/*tamanho da fonte*/
+	margin-top: 10%;
+	border-radius: 10px;/*cantos arredondados*/
+	width: 50%;
+}
+
+#menu_serv a{
+	text-decoration:none;
+}

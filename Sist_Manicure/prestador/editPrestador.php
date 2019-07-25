@@ -44,7 +44,7 @@
 ?>
 
 	<form action="" name="cliente" method="post">
-		<legend><b> ATUALIZAR CADASTRO </legend>
+		<legend><b> ATUALIZAR CADASTRO PRESTADOR DE SERVIÇOS</legend>
 		<table border='0' >
 			<tr>
 				<th align=left>Código:</th><td> <input type="label" name="idprest" id="idprest" value="<?php echo $Cod_Prestador?>" required></td>
