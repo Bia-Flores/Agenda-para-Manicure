@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Jul-2019 às 01:19
+-- Generation Time: 25-Jul-2019 às 03:35
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -45,7 +45,8 @@ CREATE TABLE `administrador` (
 
 INSERT INTO `administrador` (`idadmim`, `nome`, `CPF`, `telefone`, `celular`, `email`, `senha`, `foto`) VALUES
 (1, 'Admin Teste', '000.000.000-00', '0123456789', '55 991010203', 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'abc'),
-(2, 'Beatriz Gabriel Flores', '111.222.333-44', '55 3242-0000', '55 991010203', 'byaflores@gmail.com', '202cb962ac59075b964b07152d234b70', '');
+(6, 'Flores', '090.090.090-00', '5532421966', '99999-3456', 'byaflores@gmail.com', '202cb962ac59075b964b07152d234b70', ''),
+(8, 'Lucelia Linda', '020.807.220-93', '5532421966', '55 992325432', 'lucelia.vieiraa@hotmail.com', '202cb962ac59075b964b07152d234b70', '');
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,7 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`idclie`, `nome`, `CPF`, `RG`, `CEP`, `endereco`, `cidade`, `UF`, `telefone`, `celular`, `email`, `senha`, `foto`) VALUES
 (1, 'Carla Ribeiro', '014.025.036-00', '0001144778', '97584-222', 'Rua Sorria', 'Santana', 'RS', '5532421966', '99999-3456', 'carla@gmail.com', '12345', 'asdf'),
 (2, 'Aninha Pereira Filho', '014.025.036.00', '0147852036', '97584-321', 'Rua Sorria, 200', 'Santana do Livramento', 'RS', '5532421966', '99999-3456', 'aninha@gmail.com', '12345', 'asdf'),
-(3, 'Maria de FÃ¡tima Rodrigues', '333.444.222-11', '0987667890', '97570-220', 'Rua Maria', 'Santana do Livramento', 'RS', '5532421966', '55 991010203', 'maria@maria.com', '12345', '');
+(3, 'Maria de FÃ¡tima Rodrigues Alves', '333.444.222-11', '0987667890', '97570-220', 'Rua Maria, 300', 'Santana do Livramento', 'RS', '5532421966', '55 991010203', 'maria@maria.com', '12345', '');
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,7 @@ CREATE TABLE `prestador` (
 
 INSERT INTO `prestador` (`idprest`, `nome`, `CPF`, `RG`, `CEP`, `endereco`, `cidade`, `UF`, `telefone`, `celular`, `email`, `senha`, `foto`, `idservico`) VALUES
 (1, 'Gabriela Flores', '770.297.980-15', '1122334455', '97574-224', 'Rua TamandarÃ©, 15', 'SÃ£o Vicente do Sul', 'RS', '5532421966', '99999-3456', 'byaflores@gmail.com', '12345', 'abc', 1),
-(2, 'Angela Maria Freitas', '159.951.999-88', '1597536541', '97587-254', 'Rua Belizario Freitas, 100', 'Santana do Livramento', 'RS', '5532421966', '55999992321', 'angela@gmail.com', '12345', '', 1);
+(2, 'Angela Maria Freitas Correia', '159.951.999-88', '1597536541', '97587-254', 'Rua Belizario Freitas, 100', 'Santana do Livramento', 'RS', '5532421966', '55999992321', 'angela@gmail.com', '12345', '', 1);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,9 @@ CREATE TABLE `servico` (
 
 INSERT INTO `servico` (`idserv`, `NomeDesc`) VALUES
 (1, 'Manicure'),
-(2, 'Pedicure');
+(2, 'Pedicure'),
+(4, 'Pedicure Canino'),
+(5, 'Pedicure Teste Testado');
 
 -- --------------------------------------------------------
 
@@ -184,7 +187,9 @@ CREATE TABLE `tiposervico` (
 
 INSERT INTO `tiposervico` (`idtipo`, `idservico`, `descrTipo`) VALUES
 (1, 1, 'Manicure Francesinha - Esmalte Importado'),
-(2, 2, 'Pedicure - Francesinha Simples');
+(2, 2, 'Pedicure - Francesinha Simples'),
+(3, 4, 'Corte e aplicaÃ§Ã£o de base'),
+(4, 5, 'Pedicure testando Correto');
 
 --
 -- Indexes for dumped tables
@@ -255,13 +260,13 @@ ALTER TABLE `tiposervico`
 -- AUTO_INCREMENT for table `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `idadmim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idadmim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idclie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idclie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `listaserv`
@@ -279,19 +284,19 @@ ALTER TABLE `ordem`
 -- AUTO_INCREMENT for table `prestador`
 --
 ALTER TABLE `prestador`
-  MODIFY `idprest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idprest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `idserv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idserv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tiposervico`
 --
 ALTER TABLE `tiposervico`
-  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
