@@ -61,7 +61,7 @@
 			$resultado=AltTipServ($Cod_TipServ, $Cod_Serv, $Desc_TipServ);
 		}
 		?>
-		<span><button> <a href = 'editTipo.php'>Buscar</a></button></span>
+		<span><button> <a href = 'busTipServ.php'>Buscar</a></button></span>
 </section>
 
 <?php
