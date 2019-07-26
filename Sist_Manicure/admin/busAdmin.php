@@ -26,17 +26,17 @@
 				$nome = $_POST['nome'];
 				//idadmim, nome, CPF, telefone, celular, email, senha, foto
 				$ObjAdmin = BuscarAdmin($nome);
-				echo "<div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
-						   <tr>
-							
+				echo "<div > <table border='1' id='table-milagre' style='position: absolute; text-align:center; top: 508px; width: 100%; height: auto; background-color: white;'>
+						<thead>
 							<th>Nome</th>
 							<th>CPF</th>
 							<th>Telefone</th>
 							<th>Celular</th>
 							<th>E-mail</th>
-							
 							<th>Foto</th>
-						   </tr>";
+							<th colspan = '2'>Ações</th>
+					</thead>
+					<tbody>";
 						   
 				foreach ($ObjAdmin as $administrador) {
 					echo'<tr align=center>';
@@ -48,12 +48,12 @@
 					echo'<td>' . $administrador['email'] . '</td>';
 					/*echo'<td>' . $administrador['senha'] . '</td>';*/
 					echo'<td>' . $administrador['foto'] . '</td>';
-					echo'</tr>';
+				
+					echo'<td><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
+					echo'<td><a href=excAdmin.php?idadmim=' . $administrador['idadmim'] . '>Excluir Cadastro</a></td>';
 					echo'<tr>';
-					echo'<td align=center colspan = 3 ><a href=editAdmin.php?idadmim=' . $administrador['idadmim'] . '>Atualizar Cadastro</a></td>';
-					echo'<td align=center colspan = 3 ><a href=excAdmin.php?idadmim=' . $administrador['idadmim'] . '>Excluir Cadastro</a></td>';
-					echo'</tr>';
 				}
+				echo'</tbody></table>';
 				echo "	</div>";
 			}
 		?>

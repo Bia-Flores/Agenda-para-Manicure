@@ -19,7 +19,7 @@
 	$Email_Admin="";
 	$Senha_Admin="";
 	$Foto_Admin="";
-	//idadmim, nome, CPF, telefone, celular, email, senha, foto
+	
 	if(isset($_GET['idadmim'])){
 		$IdAdmin=$_GET['idadmim'];
 		$administrador=BuscaRegAdmin($IdAdmin);
@@ -79,7 +79,9 @@ if(isset($_POST['idadmim'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& iss
 	$Fone_Admin=$_POST['telefone'];
 	$Celular_Admin=$_POST['celular'];
 	$Email_Admin=$_POST['email'];
-	$Senha_Admin=$_POST['senha'];
+	//$Senha_Admin=$_POST['senha'];
+	$MD5 = md5($_POST['senha']);
+	$Senha_Admin=$MD5;
 	$Foto_Admin=$_POST['foto'];
 	
 	
@@ -87,7 +89,7 @@ if(isset($_POST['idadmim'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& iss
 	$resultado=AlterarAdmin($Cod_Admin, $Nome_Admin, $CPF_Admin, $Fone_Admin, $Celular_Admin, $Email_Admin, $Senha_Admin, $Foto_Admin);
 }
 ?>
-
+<button> <a href = 'busAdmin.php'>Buscar</a></button>
 
 <?php
 	include_once "../publicidade.php";

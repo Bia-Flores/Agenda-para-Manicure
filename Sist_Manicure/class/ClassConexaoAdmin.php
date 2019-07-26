@@ -162,9 +162,7 @@ function ApagarAdmin($idadmim) {
    		$connection = new PDO('mysql:host=127.0.0.1;dbname=agenda', 'root', '');
 		$sql = "DELETE FROM administrador WHERE idadmim = $idadmim";
         $preparedStatment = $connection->prepare($sql);
-		//$preparedStatment->bindParam(":idadmim", $idadmim);
-		
-		
+				
         if ($preparedStatment->execute() == TRUE) {
             //return $preparedStatment->fetchAll();
 			return TRUE;

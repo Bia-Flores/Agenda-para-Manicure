@@ -92,13 +92,15 @@ if(isset($_POST['idclie'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& isse
 	$Fone_Cliente=$_POST['telefone'];
 	$Celular_Cliente=$_POST['celular'];
 	$Email_Cliente=$_POST['email'];
-	$Senha_Cliente=$_POST['senha'];
+	//$Senha_Cliente=$_POST['senha'];
+	$MD5 = md5($_POST['senha']);
+	$Senha_Cliente=$MD5;
 	$Foto_Cliente=$_POST['foto'];
 	
 	$resultado=AlterarCliente($Cod_Cliente, $Nome_Cliente, $CPF_Cliente, $RG_Cliente, $CEP_Cliente, $End_Cliente, $Cidade_Cliente, $UF_Cliente, $Fone_Cliente, $Celular_Cliente, $Email_Cliente, $Senha_Cliente, $Foto_Cliente);
 }
 ?>
-
+<button> <a href = 'busCliente.php'>Buscar</a></button>
 <?php
 	include_once "../publicidade.php";
 	include_once "../rodape.php";

@@ -22,8 +22,8 @@
 		$nome = $_POST['nome'];
 		
         $ObjPrest = BuscarPrest($nome);
-        echo " <div > <table border='1' id='table-milagre' style='position: absolute; top: 508px; width: 100%; height: auto; background-color: white;'>
-                   <tr>
+        echo "<div > <table border='1' id='table-milagre' style='position: absolute; text-align:center; top: 475px; width: 100%; height: auto; background-color: white;'>
+				<thead>
           
                      <th>Nome</th>
 					 <th>CPF</th>
@@ -38,7 +38,9 @@
 					 
 					 <th>Foto</th>
 					 <th>Serviço</th>
-                   </tr>";
+					<th colspan = '2'>Ações</th>
+				</thead>
+				<tbody>";
 				   
         foreach ($ObjPrest as $prestador) {
             echo'<tr align=center>';
@@ -56,14 +58,14 @@
 			/*echo'<td>' . $prestador['senha'] . '</td>';*/
 			echo'<td>' . $prestador['foto'] . '</td>';
 			echo'<td>' . $prestador['idservico'] . '</td>';
-			echo'</tr>';
-			echo'<tr>';
-            echo'<td align=center colspan = 5 ><a href=editPrestador.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
-			echo'<td align=center colspan = 7 ><a href=excPrestador.php?idprest=' . $prestador['idprest'] . '>Excluir Cadastro</a></td>';
-            echo'</tr>';
-        }
+			
+            echo'<td><a href=editPrestador.php?idprest=' . $prestador['idprest'] . '>Atualizar Cadastro</a></td>';
+			echo'<td><a href=excPrestador.php?idprest=' . $prestador['idprest'] . '>Excluir Cadastro</a></td>';
+            echo'<tr>';
+		}
+		echo'</tbody></table>';
 		echo "	</div>";
-    }
+	}
 ?>
 
 <?php

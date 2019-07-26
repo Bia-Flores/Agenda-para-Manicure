@@ -58,7 +58,9 @@ if (isset($_POST['nome']) && isset($_POST['CPF']) && isset($_POST['RG']) && isse
     $telefone = $_POST['telefone'];
 	$celular = $_POST['celular'];
 	$email = $_POST['email'];
-	$senha = $_POST['senha'];
+	//$senha = $_POST['senha'];
+	$MD5 = md5($_POST['senha']);
+	$senha = $MD5;
 	$foto = $_POST['foto'];
 	$idservico = $_POST['idservico'];
     

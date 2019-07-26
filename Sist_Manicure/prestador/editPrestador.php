@@ -94,14 +94,16 @@ if(isset($_POST['idprest'])&& isset($_POST['nome'])&& isset($_POST['CPF'])&& iss
 	$Fone_Prestador=$_POST['telefone'];
 	$Celular_Prestador=$_POST['celular'];
 	$Email_Prestador=$_POST['email'];
-	$Senha_Prestador=$_POST['senha'];
+	//$Senha_Prestador=$_POST['senha'];
+	$MD5 = md5($_POST['senha']);
+	$Senha_Prestador=$MD5;
 	$Foto_Prestador=$_POST['foto'];
 	$Serv_Prestador=$_POST['idservico'];
 	
 	$resultado=AlterarPrest($Cod_Prestador, $Nome_Prestador, $CPF_Prestador, $RG_Prestador, $CEP_Prestador, $End_Prestador, $Cidade_Prestador, $UF_Prestador, $Fone_Prestador, $Celular_Prestador, $Email_Prestador, $Senha_Prestador, $Foto_Prestador, $Serv_Prestador);
 }
 ?>
-
+<button> <a href = 'busPrestador.php'>Buscar</a></button>
 <?php
 	include_once "../publicidade.php";
 	include_once "../rodape.php";
